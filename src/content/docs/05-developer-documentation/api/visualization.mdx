@@ -1,0 +1,56 @@
+---
+title: KPI Visualization
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 4
+---
+
+import PersonaSays from '@components/personas/PersonaSays.astro'
+
+<PersonaSays persona="doro">
+
+  Can I quickly turn API measurements into a chart for reporting?
+
+</PersonaSays>
+
+Yes. Fetch the series, load it into `pandas`, and plot with `matplotlib`.
+
+```python
+import matplotlib.pyplot as plt
+import pandas as pd
+
+
+service_abbr = "my-service"
+indicator_abbr = "active_users"
+
+payload = api_get(
+  "/denbi/api/v1/measurements",
+  params={
+    "service": service_abbr,
+    "indicators": indicator_abbr,
+    "start": "2026-01-01T00:00:00",
+    "stop": "2026-12-31T23:59:59",
+    "page": 0,
+    "pageSize": 1000,
+  },
+)
+
+rows = unwrap_result(payload)
+if not rows:
+  raise SystemExit("No measurements returned for the selected filters.")
+
+df = pd.DataFrame(rows)
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df = df.dropna(subset=["date", "value"]).sort_values("date")
+
+ax = df.plot(x="date", y="value", kind="line", marker="o", figsize=(10, 5))
+ax.set_title(f"KPI trend: {indicator_abbr} ({service_abbr})")
+ax.set_xlabel("Date")
+ax.set_ylabel("Value")
+ax.grid(True, linestyle="--", alpha=0.4)
+
+plt.tight_layout()
+plt.show()
+```

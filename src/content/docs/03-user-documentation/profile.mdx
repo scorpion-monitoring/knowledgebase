@@ -1,0 +1,60 @@
+---
+title: User Profile
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 2
+---
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+The User Profile page enables you to update your personal information, manage your group memberships and API token. This section provides an overview of the key profile features available.
+
+![Profile Overview](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/profile/profile.png)
+
+The page is divided into three main sections. The left section manages your personal information and allows you to update your profile details. The top right side manages your group memberships, enabling you to view and control your affiliations. The bottom right side manages your API tokens, enabling you to generate and handle authentication credentials.
+
+## Service Provider Memberships
+
+Access permissions in Scorpion are handled through a group membership system. Each service provider (resp. your affiliation) has its own group. In order to register services and submit KPI measurements, you must request membership. 
+
+
+![Search Provider](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/profile/profile-search-provider.png)
+
+<Steps>
+
+    1. Search for the service provider you want to join in the search box and click on the "Add" button.
+    1. Wait for the administrator to approve your request.
+    1. Once approved, you will have access to the services and can submit KPI measurements.
+
+</Steps>
+<Aside title="Note" type='tip'>
+  If your request is pending, you will see a "Pending" status next to the service provider. You can cancel your request at any time by clicking the "Remove" button.
+</Aside>
+
+![Search Provider](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/profile/profile-provider-pending.png)
+
+{/* 
+## Profile Information
+
+![Profile Picture](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/profile/profile-with-picture.PNG) */}
+
+## API Token
+
+<Aside title="API Token" type='danger'>
+  If you don't know what an API token is, you probably don't need one.
+</Aside>
+
+In order to authenticate API requests, you need to generate an API token. This token is a unique identifier that allows you to access the Scorpion API and perform actions on your behalf.
+
+<Steps>
+
+    1. Enter a name for your API token in the input field and click the "Generate Token" button.
+    1. Copy the generated token and store it securely, as you won't be able to see it again.
+    1. Use the token in your API requests to authenticate and access the Scorpion API.
+
+</Steps>
+
+![Search Provider](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/profile/profile-api-token.png)
+
+If you need to revoke an API token, you can do so by clicking the "Revoke" button next to the token in the API token management section. This will invalidate the token and prevent any further use.

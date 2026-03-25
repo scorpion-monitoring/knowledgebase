@@ -1,0 +1,75 @@
+---
+title: System setup and configuration
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 1
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="note">
+    This section assumes that you have already completed the initial installation of Scorpion. If you haven't, please refer to the [Installation Guide](/knowledgebase/05-developer-documentation/installation) before proceeding with the setup and configuration steps outlined here.
+</Aside>
+
+This section provides detailed instructions for setting up and configuring the Scorpion web application. 
+It covers the necessary steps to get your instance up and running, including first login, initial configuration and best practices for maintaining a healthy system.
+
+## First Login
+
+When you first access the Scorpion web application, you will be prompted to log in. 
+As no users have been created yet, you need to switch to the registration tab and create an account.
+The first registered user will requrire no approval and will automatically receive administrator privileges, allowing you to manage the application and its settings.
+
+![Registration](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/misc/register.png)
+
+## Initial Configuration
+
+After logging in for the first time, it's important to review and adjust the application settings to fit your needs.
+Navigate to the settings page using the left sidebar and switch to the "Settings" menu. 
+In order to ensure mail notifications work correctly, you need to configure a Mail Relay service.
+Additionally, you can adjust the application name to customize the branding of your instance.
+
+![General settings](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-settings-general.png)
+
+With the Mail Relay configured, administrators will receive notifications when new users register and require approval, as well as when new alerts are triggered in the system (e.g. new group membership requests).
+Additionally, users will be notified about decision on their registration and group membership requests.
+
+## KPI Set Configuration
+
+Scorpion build upon a KPI framework using category specific indicators.
+To configure the KPIs for your instance, navigate to the "KPI Framework" menu in the settings.
+
+![KPI Settings](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-indicator-overview.png)
+
+Here you can manage the KPI categories and indicators used in your instance.
+It is recommended to first create the indicators by defining their name, description, indicator type and category.
+
+![Create indicator](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-indicator-new-indicator.png)
+
+After creating the indicators, you can create a category KPI set by selecting the desired indicators and assigning them to the set in the "New Category" dialog.
+
+![Create category](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-indicator-new-category.png)
+
+The order in which you create the indicators and categories does not matter, as you can always edit the category and adjust the assigned indicators later on or define the categories in which an indicator is placed when creating the indicator.
+
+
+For the consortia evaluation, you can define the used indicators and aggregation method in the "Configure Evaluation" dialog.
+
+![Configure evaluation](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-indicator-config-evaluation.png)
+
+## Configure Service Providers and Consortia
+
+In the "Group Management" menu, you can manage the service providers and consortia in your instance.
+Here you can create new service providers and consortia.
+
+![Provider management](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-new-provider.png)
+
+Both service providers and consortia have an abbreviation and a name, which are used for display and identification purposes in the system. 
+
+![Consortia management](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-new-consortium.PNG)
+
+
+This concludes the initial setup and configuration of your Scorpion instance.
+For further configuration options and best practices for maintaining a healthy system, refer to the following sections in this administration guide.

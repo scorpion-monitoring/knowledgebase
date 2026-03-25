@@ -1,0 +1,98 @@
+---
+title: Automated KPI Submission
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 5
+---
+
+import PersonaSays from '@components/personas/PersonaSays.astro'
+
+<PersonaSays persona="doro">
+
+  Can I combine submit, retrieve, and plot into one runnable script?
+
+</PersonaSays>
+
+Yes. This script does exactly that in one flow.
+
+```python
+import os
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import requests
+
+
+BASE_URL = os.getenv("SCORPION_API_BASE", "https://scorpion.bi.denbi.de")
+API_KEY = os.getenv("SCORPION_API_KEY")
+
+if not API_KEY:
+  raise SystemExit("SCORPION_API_KEY is not set")
+
+
+def get(path, params=None):
+  r = requests.get(
+    f"{BASE_URL}{path}",
+    params=params,
+    headers={"X-API-Key": API_KEY},
+    timeout=30,
+  )
+  r.raise_for_status()
+  payload = r.json()
+  return payload.get("result", payload)
+
+
+def post(path, json_body, params=None):
+  r = requests.post(
+    f"{BASE_URL}{path}",
+    params=params,
+    json=json_body,
+    headers={"X-API-Key": API_KEY},
+    timeout=30,
+  )
+  r.raise_for_status()
+  return r.json()
+
+
+service = "my-service"
+kpi = "active_users"
+
+# 1) Submit two data points
+post(
+  "/denbi/api/v1/measurements",
+  [
+    {"kpi": kpi, "date": "2026-03-10T00:00:00", "value": 1400},
+    {"kpi": kpi, "date": "2026-03-11T00:00:00", "value": 1455},
+  ],
+  params={"service": service},
+)
+
+# 2) Retrieve series
+series = get(
+  "/denbi/api/v1/measurements",
+  params={
+    "service": service,
+    "indicators": kpi,
+    "start": "2026-03-01T00:00:00",
+    "stop": "2026-03-31T23:59:59",
+    "page": 0,
+    "pageSize": 1000,
+  },
+)
+
+# 3) Plot
+df = pd.DataFrame(series)
+df["date"] = pd.to_datetime(df["date"])
+df = df.sort_values("date")
+
+plt.figure(figsize=(9, 4))
+plt.plot(df["date"], df["value"], marker="o")
+plt.title(f"{service} - {kpi}")
+plt.xlabel("Date")
+plt.ylabel("Value")
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.show()
+```

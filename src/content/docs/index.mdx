@@ -1,0 +1,75 @@
+---
+title: Welcome to the Scorpion Knowledge Base
+template: splash # Remove or comment out this line to display the site sidebar on this page.
+hero:
+  tagline: Scorpion - Service Monitoring KPI Dashboard for Life Sciences
+  title: Streamline KPI Tracking & Service Performance
+  description: Centralize KPI submission, monitoring, and performance analysis for research service institutions. Real-time dashboards, secure data management, and powerful API integrations.
+  actions:
+    - text: Get Started
+      link: /knowledgebase/03-user-documentation/
+      icon: right-arrow
+    - text: Test Drive
+      icon: external
+      variant: minimal
+      link: https://dev.scorpion.bi.denbi.de/denbi
+    - text: View API Docs
+      link: /knowledgebase/api/
+      variant: minimal
+---
+
+import { CardGrid, Card } from '@astrojs/starlight/components';
+import TestimonialGrid from '../../components/TestimonialGrid.astro';
+import Testimonial from '../../components/Testimonial.astro';
+
+<CardGrid stagger>
+
+<Card icon="open-book" title="User Documentation">
+Learn how to use the Scorpion dashboard, submit KPIs, manage your profile, and access service registration tools. Perfect for institutional users and service providers.
+<br /><a class="no-underline cursor-pointer font-semibold" href="/knowledgebase/03-user-documentation/">→ Explore User Docs</a>
+</Card>
+
+<Card icon="puzzle" title="Developer Integration">
+Build integrations with our REST API. Automate KPI submission, retrieve measurements, and create custom visualizations for your workflows.
+<br /><a class="no-underline cursor-pointer font-semibold" href="/knowledgebase/05-developer-documentation/">→ Explore Developer Docs</a>
+</Card>
+
+<Card icon="setting" title="Admin Setup">
+Configure authentication, manage user accounts, set up logging, and handle system backups. Resources for system administrators and operators.
+<br /><a class="no-underline cursor-pointer font-semibold" href="/knowledgebase/04-admin-documentation/">→ Explore Admin Docs</a>
+</Card>
+
+</CardGrid>
+
+## Key Features
+
+<CardGrid>
+
+<Card title="Aggregated KPI Monitoring">
+Track service performance with aggregated KPI data collected on a daily or monthly basis. Interactive dashboards provide clear visualization of metrics across time periods.
+</Card>
+
+<Card title="Secure Data Management">
+OIDC-based authentication with enterprise identity providers and role-based access control to manage permissions across your organization.
+</Card>
+
+<Card title="API-Driven Automation">
+Programmatically submit KPIs, retrieve measurements, and integrate with your existing systems using our REST API.
+</Card>
+
+<Card title="Multi-Institutional Support">
+Manage services across consortia and group memberships with flexible permission structures and reporting capabilities.
+</Card>
+
+</CardGrid>
+
+<TestimonialGrid title="What Our Users Say">
+  <Testimonial
+    name="Manuel"
+    handle="feserm"
+    cite="https://github.com/feserm"
+  >
+  We use Scorpion for our Service Portfolio Management in NFDI4Biodiversity. It is a great tool for monitoring the performance of our services and identifying areas for improvement. The dashboard is user-friendly and provides valuable insights into our service performance.
+  </Testimonial>
+
+</TestimonialGrid>

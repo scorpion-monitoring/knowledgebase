@@ -1,0 +1,79 @@
+---
+title: User and Access Management
+lastUpdated: 2026-03-25
+authors:
+  - manuel-feser
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+This section explains how administrators process access-related requests in Scorpion.
+It covers two common workflows:
+
+- Approving or rejecting requests from newly registered users.
+- Approving or rejecting new service provider membership requests.
+
+## Handling new user requests
+
+When a new user registers, their account remains pending until an administrator reviews the request.
+
+<Aside type="note">
+If a Mail Relay is configured, administrators receive an email notification for new user registrations.
+</Aside>
+
+<Steps>
+
+  1. Open the administration area and go to the user management section.
+  1. Locate users with a pending registration status.
+  1. Open the request and review the user details.
+  1. Decide whether to approve or reject the registration.
+  1. Set the user role (e.g. administrator, reviewer, user) or leave it at default role.
+  1. Confirm your decision.
+
+</Steps>
+
+![Pending user registration](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-user-approve.png)
+
+### Approval outcome
+
+- The user account is activated.
+- The user can log in and access Scorpion according to assigned permissions.
+- The user receives a notification about the approved registration.
+
+### Rejection outcome
+
+- The registration request is declined and the account stays inactive.
+- The user receives a notification about the rejected registration.
+
+## Handling new service provider membership requests
+
+Users request service provider memberships from their profile page.
+Each request must be approved by an administrator before the user can submit KPI data for that provider.
+
+<Aside type="note">
+If a Mail Relay is configured, administrators receive email notifications for new membership requests.
+</Aside>
+
+<Steps>
+
+  1. Open the administration area and go to the user management section.
+  1. Locate the user with a pending membership request.
+  1. Review the requested service provider membership.
+  1. Approve or reject the membership request.
+  1. Confirm the decision.
+
+</Steps>
+
+![Pending user membership](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-provider-approval.png)
+
+### Membership approval outcome
+
+- The user is added to the selected service provider group.
+- The user can register services and submit KPI measurements for that provider.
+
+### Membership rejection outcome
+
+- The user is not added to the requested service provider group.
+- Existing access rights remain unchanged.

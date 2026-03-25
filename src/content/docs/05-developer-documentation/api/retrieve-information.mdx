@@ -1,0 +1,71 @@
+---
+title: Information Retrieval
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 1
+---
+
+import PersonaSays from '@components/personas/PersonaSays.astro'
+
+<PersonaSays persona="doro">
+
+  Before posting KPI values, how do I discover what already exists in Scorpion?
+
+</PersonaSays>
+
+Query catalog endpoints first, then pick valid abbreviations for service/provider/indicator filters.
+
+### Find services
+
+```python
+payload = api_get(
+  "/denbi/api/v1/services",
+  params={
+    "service": "",      # optional service abbreviation filter
+    "provider": "",     # optional provider abbreviation filter
+    "page": 0,
+    "pageSize": 1000,
+  },
+)
+
+services = unwrap_result(payload)
+print(f"Found {len(services)} services")
+print(services[0] if services else "No services")
+```
+
+### Find providers
+
+```python
+payload = api_get(
+  "/denbi/api/v1/providers",
+  params={"is_member": True, "page": 0, "pageSize": 1000},
+)
+
+providers = unwrap_result(payload)
+for provider in providers[:5]:
+  print(provider["abbreviation"], provider["name"])
+```
+
+### Find categories and indicators
+
+```python
+categories = unwrap_result(
+  api_get("/denbi/api/v1/categories", params={"page": 0, "pageSize": 1000})
+)
+
+indicators = unwrap_result(
+  api_get(
+    "/denbi/api/v1/indicators",
+    params={
+      "category": "",  # optional category abbreviation
+      "service": "",   # optional service abbreviation
+      "page": 0,
+      "pageSize": 1000,
+    },
+  )
+)
+
+print(f"Categories: {len(categories)} | Indicators: {len(indicators)}")
+```

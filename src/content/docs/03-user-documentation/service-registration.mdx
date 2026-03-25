@@ -1,0 +1,50 @@
+---
+title: Service Registration
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 2
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+In order to store and manage the services that you want to monitor, you need to register them in Scorpion. During this registration process, you will be able to define the properties and KPI sets for each service.
+To register a service, navigate to the "Services" section in the left sidebar and click on the "Add New Service" button. This will open a form where you can enter the details of the service you want to monitor.
+
+![Service List](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/services-list.png)
+
+### Metadata
+
+In the Metadata section, you can enter the basic information about the service, such as its name, slug, license and life cycle status. This information helps to provide context during the performance analysis and allows you to easily identify and manage your services.
+
+![Add Service Form](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/service-registration-metadata.png)
+
+### Provider
+
+In the Provider section, you can select the provider that is responsible for monitoring the service. By assigning a provider to the service, you define the user group that has access to the service and can submit measurements for it.
+Additionally, you can specify the service groups that the service belongs to. In Scorpion, Service groups allow to organize services for shared analysis and reporting. By assigning a service to a group, we can use Scorpion to monitor multiple projects with overlapping services.
+
+![Add Service Form](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/service-registration-provider.png)
+
+### KPIs
+
+In the KPIs section, you can define the key performance indicators for the service. These metrics will be used to monitor the performance and availability of the service.
+Scorpion defines KPI sets for different categories of services, such as web applications, databases, or APIs. You can select the appropriate KPI set for your service, and Scorpion will automatically use the relevant KPIs for monitoring and analysis.
+If important KPIs are missing from the predefined sets, you can also add custom KPIs to ensure that all relevant performance metrics are captured for your service.
+
+![Add Service Form](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/service-registration-kpis.png)
+
+### Update Services
+
+After registering a service, you can always update its properties and KPIs by navigating to the service details page via the service list. This allows you to keep your service information up-to-date and ensure that you are monitoring the most relevant metrics for your services.
+
+![Service Profile](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/service-profile.png)
+
+Clicking the "Edit Service" button will enter the edit mode, allowing you to modify the service details and KPIs as needed.
+
+<Aside type="danger">
+  When you update the service slug, make sure to also update the slug in your automated measurement submission. Otherwise, the submission will fail because the service cannot be found.
+</Aside>
+
+![Edit Service Form](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/service-profile-edit-metadata.png)

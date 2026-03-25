@@ -1,0 +1,38 @@
+---
+title: Monitoring and Logging
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 4
+---
+
+The API logging system automatically captures detailed information about all external API requests made to the system. 
+This comprehensive logging enables administrators to monitor system activity, troubleshoot issues, and maintain security audits.
+
+![API Logging](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-api-logs.png)
+
+## API Request Logging
+
+All API requests are automatically logged with the following information:
+
+- **Timestamp**: The exact date and time the request was received
+- **HTTP Method**: GET, POST, PUT, DELETE, PATCH, etc.
+- **Endpoint**: The API endpoint that was called
+- **Request Parameters**: Input data sent with the request
+- **User Information**: The user making the request
+
+## Accessing Logs from the Administration Page
+
+Administrators can view and monitor API request logs through the administration dashboard:
+
+1. Navigate to the "Administration" section
+2. Select "Logs" from the menu
+3. The log viewer displays recent API activity
+
+### Use Cases
+
+API logging helps administrators with:
+
+- **Security Monitoring**: Detect unusual access patterns or potential security threats
+- **Troubleshooting**: Investigate failed requests and identify root causes

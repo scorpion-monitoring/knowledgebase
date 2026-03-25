@@ -1,0 +1,91 @@
+---
+title: Security and Authentication
+lastUpdated: 2026-03-25
+authors:
+  - manuel-feser
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+This section explains how to configure authentication in Scorpion using OpenID Connect (OIDC) Identity Providers (IdPs), and how to disable local username/password accounts once external login is ready.
+
+![Authentication](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-settings-security.png)
+
+## Configure Identity Providers (OIDC)
+
+Use this workflow to connect Scorpion to one or more external IdPs (for example institutional login systems).
+
+### Prerequisites
+
+Before you start, ensure you have the following information from your IdP administrator:
+
+- Issuer URL or Discovery URL (well-known OIDC configuration endpoint)
+- Client ID
+- Client Secret
+- Requested scopes (typically including `openid`, `profile`, and `email`)
+- Redirect/Callback URL that must be registered in the IdP (`<baseurl>/<prefix>/login/oidc/callback/`)
+
+<Aside type="caution">
+The Redirect/Callback URL must exactly match the URL of your Scorpion endpoint. A mismatch is a common reason for failed logins.
+</Aside>
+
+### Setup steps
+
+<Steps>
+
+  1. Sign in as a Scorpion administrator.
+  1. Open the administration area and navigate to the security tab in the settings.
+  1. Add a new OIDC provider entry.
+  1. Enter the IdP details (issuer/discovery endpoint, client ID, client secret, scopes, and display name and display icon).
+  1. Save the provider configuration.
+  1. Use the login page to verify the new provider appears and authentication completes successfully.
+
+</Steps>
+
+### Verification checklist
+
+After creating an OIDC provider, validate the following:
+
+- The IdP button/option is visible on the login page.
+- A test user can log in through the IdP and reaches Scorpion successfully.
+- The authenticated user appears in user management and can be assigned roles and memberships.
+
+## Disable local accounts
+
+Once OIDC login is confirmed, you can disable local account sign-in and registration.
+Depending on your user base, this might be desirable to enforce the use of external IdPs and prevent local accounts from being used.
+
+<Aside type="danger">
+Disable local accounts only after verifying at least one administrator can sign in through OIDC. Otherwise you risk locking out all administrators.
+</Aside>
+
+### Recommended rollout
+
+<Steps>
+
+  1. Keep local accounts enabled while testing OIDC with at least one administrator account.
+  1. Confirm role assignment and provider membership workflows still work for OIDC users.
+  1. Disable local login and local registration in the authentication settings.
+  1. Open a private/incognito browser session and test sign-in again with OIDC.
+  1. Inform users that local credentials are no longer accepted and that they must use the configured IdP.
+
+</Steps>
+
+### Operational impact
+
+After disabling local accounts:
+
+- New users can no longer create local username/password registrations.
+- Existing local users cannot sign in with local credentials.
+- Access is fully controlled through configured OIDC providers.
+
+## Troubleshooting
+
+If OIDC login does not work as expected:
+
+- Verify the redirect URL configured in the IdP is exactly identical to the URL expected by Scorpion.
+- Verify client ID/secret and issuer/discovery URL values.
+- Confirm Scorpion is served behind the correct public base URL (especially when using reverse proxies).
+- Check the application logs for authentication errors and token/claim validation issues.

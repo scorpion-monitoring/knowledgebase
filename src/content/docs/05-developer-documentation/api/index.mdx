@@ -1,0 +1,84 @@
+---
+title: API Guide
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 0
+---
+
+import PersonaSays from '@components/personas/PersonaSays.astro'
+
+On Monday morning, Doro needs to prepare the latest service KPI report before the stakeholder meeting.
+She uses the Scorpion API to discover available indicators, submit fresh measurements, verify ingestion, and build a quick trend chart for review.
+
+
+<PersonaSays persona="doro">
+
+  How do I authenticate and avoid repeating boilerplate in every API call?
+
+</PersonaSays>
+
+Use an API key in the `X-API-Key` header and create small `GET` / `POST` helper functions.
+
+Install dependencies:
+
+```bash
+python -m pip install requests pandas matplotlib
+```
+
+Set environment variables:
+
+```bash
+export SCORPION_API_BASE="https://scorpion.bi.denbi.de"
+export SCORPION_API_KEY="<your-api-key>"
+```
+
+Python helper code:
+
+```python
+import os
+from typing import Any, Dict, Optional
+
+import requests
+
+
+BASE_URL = os.getenv("SCORPION_API_BASE", "https://scorpion.bi.denbi.de")
+API_KEY = os.getenv("SCORPION_API_KEY", "replace-with-your-key")
+
+
+def api_get(path: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+  url = f"{BASE_URL}{path}"
+  response = requests.get(
+    url,
+    params=params,
+    headers={"X-API-Key": API_KEY},
+    timeout=30,
+  )
+  response.raise_for_status()
+  return response.json()
+
+
+def api_post(path: str, payload: Any, params: Optional[Dict[str, Any]] = None) -> Any:
+  url = f"{BASE_URL}{path}"
+  response = requests.post(
+    url,
+    params=params,
+    json=payload,
+    headers={"X-API-Key": API_KEY},
+    timeout=30,
+  )
+  response.raise_for_status()
+  return response.json()
+
+
+def unwrap_result(payload: Dict[str, Any]) -> list:
+  """
+  Most Scorpion endpoints return:
+  {
+    "metadata": {...},
+    "result": [...]
+  }
+  """
+  return payload.get("result", payload)
+```

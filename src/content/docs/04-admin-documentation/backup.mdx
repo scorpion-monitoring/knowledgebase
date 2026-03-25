@@ -1,0 +1,52 @@
+---
+title: Backup and Recovery Procedures
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 5
+---
+
+![Backup](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/main/administration/admin-settings-security.png)
+
+## Overview
+
+Regular backups are essential for protecting your Scorpion system against data loss, system failures, and disaster scenarios. This guide provides administrators with procedures for configuring, managing, and recovering from backups of the Scorpion database and system data.
+
+## Backup Architecture
+
+Scorpion implements a secure, automated backup strategy with the following components:
+
+- **Encrypted Storage**: All backups are encrypted before being stored
+- **Database Snapshots**: Complete snapshots of all database tables are captured
+- **Cloud Storage**: Backups are stored in a configured Amazon S3 bucket or compatible object storage
+- **Automated Scheduling**: Backups run on a monthly schedule
+- **Versioning**: Multiple backup versions are retained for point-in-time recovery
+
+## Configuring Backups
+
+### Prerequisites
+
+Before configuring backups, ensure you have:
+
+- AWS S3 bucket or compatible object storage configured
+- S3 access credentials (Access Key ID and Secret Access Key)
+- Network connectivity from your Scorpion server to the S3 endpoint
+- Sufficient S3 storage capacity for backup files
+
+### Configuring Backup Settings
+
+To configure backup in Scorpion:
+
+1. Log in as an administrator
+2. Navigate to "Security" tab in the settings
+3. Locate the backup configuration section
+5. Configure the following parameters:
+
+#### S3 Connection Settings
+
+- **S3 Bucket Name**: Enter your S3 bucket name (e.g., `scorpion-backups-prod`)
+- **S3 Region**: Select the region where your bucket is located
+- **S3 Access Key ID**: Enter the access key for the IAM user with S3 permissions
+- **S3 Secret Access Key**: Enter the corresponding secret access key
+- **S3 Endpoint**: Specify the S3 endpoint URL

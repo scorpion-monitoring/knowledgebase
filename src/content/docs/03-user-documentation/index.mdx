@@ -1,0 +1,32 @@
+---
+title: User Guide
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 0
+---
+import { Aside } from '@astrojs/starlight/components';
+
+Here we explain how to use Scorpion for reporting KPI measurements.
+## Authentication
+
+To start using Scorpion, you must authenticate yourself. Scorpion supports, depending on your instance, two login methods:
+
+* **OIDC Provider:** For external users via configured Identity Providers.
+* **Local Accounts:** For users that can not use the Identity Providers.
+
+## Registration
+To register a local account, click on the "Register" link on the login page. Fill in the required information and submit the registration form.
+The administrators of your Scorpion instance will receive a notification about your registration and will activate your account. Once your account is activated, you will receive an email notification and can log in to Scorpion using your credentials.
+
+![Local Account Registration](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/misc/register.png)
+
+<Aside type="caution">
+  Please note that your account has to be activated by an administrator before you can use Scorpion. If you have just registered, please wait for an administrator to activate your account. You will receive a notification email once your account is activated.
+</Aside>
+
+![Pending Account Activation](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/misc/pending-approval.png)
+
+
+Once logged in, you are redirected to the dashboard main page. From here you can navigate to all features.

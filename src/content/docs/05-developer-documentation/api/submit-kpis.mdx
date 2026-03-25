@@ -1,0 +1,40 @@
+---
+title: KPI Submission
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 2
+---
+
+import PersonaSays from '@components/personas/PersonaSays.astro'
+
+<PersonaSays persona="doro">
+
+  What is the exact payload shape for sending measurements?
+
+</PersonaSays>
+
+Use `POST /denbi/api/v1/measurements` with:
+
+- query parameter `service` is required
+- request body is an array of measurements
+- each measurement has `kpi`, `date`, and `value`
+
+```python
+service_abbr = "my-service"
+
+new_measurements = [
+  {"kpi": "active_users", "date": "2026-03-01T00:00:00", "value": 1200},
+  {"kpi": "active_users", "date": "2026-03-02T00:00:00", "value": 1265},
+  {"kpi": "jobs_processed", "date": "2026-03-02T00:00:00", "value": 8421},
+]
+
+created = api_post(
+  "/denbi/api/v1/measurements",
+  payload=new_measurements,
+  params={"service": service_abbr},
+)
+
+print("Submitted measurements:", created)
+```

@@ -1,0 +1,22 @@
+---
+title: Best Practices
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 6
+---
+
+import PersonaSays from '@components/personas/PersonaSays.astro'
+
+<PersonaSays persona="doro">
+
+  What should I keep in mind when I move from a demo script to production usage?
+
+</PersonaSays>
+
+- Keep API keys out of source code (environment variables or a secrets manager).
+- Use pagination (`page`, `pageSize`) for larger data pulls.
+- Use `start` and `stop` to reduce payload size.
+- Validate service and KPI abbreviations before sending measurements.
+- Keep `response.raise_for_status()` in place and add retries for transient network errors in production.

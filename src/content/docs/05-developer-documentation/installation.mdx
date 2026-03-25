@@ -1,0 +1,95 @@
+---
+title: Installation Guide
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 1
+---
+
+This guide walks you through the local setup of Scorpion from a fresh machine to a running web application.
+
+## Check prerequisites
+
+Before you begin, make sure the required tools are available:
+
+- [Node.js](https://nodejs.org/) (current LTS recommended)
+- [`pnpm`](https://pnpm.io/installation) as package manager
+- `git`
+- [`docker`](https://docs.docker.com/get-docker/) and `docker compose` plugin
+
+Using the same package manager throughout the setup helps avoid lockfile and dependency conflicts.
+
+## Get the source code
+
+Clone the repository and move into the project directory:
+
+```bash
+git clone https://github.com/scorpion-monitoring/scorpion
+cd scorpion
+```
+
+From this point on, run all commands from inside this folder.
+
+## Install project dependencies
+
+Install the JavaScript/TypeScript dependencies used by the application:
+
+```bash
+pnpm install
+```
+
+## Adapt legal text
+
+Scorpion ships with default legal documents. Adjust them to your project context before deployment:
+
+- `static/TERMS.md`
+- `static/PRIVACY.md`
+
+## Prepare environment and compose config
+
+Create local configuration files from the templates:
+
+```bash
+cp .env.example .env
+cp compose.yml.example compose.yml
+```
+
+Then edit both files:
+
+- Set your environment values in `.env` (especially database settings)
+- Align the database-related settings in `compose.yml`
+- Configure the origin of the web service in `compose.yml` (e.g. for CORS and proxy setup)
+
+## Start the database service
+
+Bring up the database container first:
+
+```bash
+docker compose -f compose.yml up db
+```
+
+Keep it running while applying the schema.
+
+## Apply the database schema
+
+Push the current schema to the running database:
+
+```bash
+pnpm run db:push
+```
+
+## Start the web application
+
+When the database is ready and the schema is applied, start the web service:
+
+```bash
+docker compose -f compose.yml up web
+```
+
+## Access the application
+
+After startup, the application is reachable via the local host IP and configured port.
+For production-like access through a domain, place a proxy in front of the service.
+
+To configure your Scorpion instance, follow the [Setup Guide](/knowledgebase/04-admin-documentation/setup).

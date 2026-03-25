@@ -1,0 +1,44 @@
+---
+title: KPI Submission
+lastUpdated: 2026-03-23
+authors:
+  - manuel-feser
+sidebar:
+  order: 3
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+
+Using the Web User Interface (Web UI), you can submit KPIs to the system. There are two methods for submission: the KPI Web Submission Form and File Upload Submission.
+Both methods are available by navigating to the "Data Submission" section in the "Services" menu. 
+
+### KPI Web Submission Form
+
+To use the KPI Web Submission Form, select the service for which you want to submit KPIs. The form will preselect the current month, if you want to submit KPIs for a different month, you can change the month and year in the form.
+
+<Aside type="caution">
+  If your Browser does not support month selection (looking at you Firefox), the form will look a bit different and you will have to enter the month and year manually in separate fields.
+</Aside>
+
+![Web Submission Form](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/service-submission-empty.png)
+
+If there are any validation errors, they will be displayed by the form and you will have to fix them before you can submit the form.
+
+![Web Submission Form](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/service-submission-invalid.png)
+
+Once, you filled out the form for the mandatory indicators, you can submit the form. 
+
+![Web Submission Form](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/service-submission-filled.png)
+
+
+### File Upload Submission
+
+The File Upload Submission allows you to upload a file containing the KPIs for a service. The file must be in CSV or TSV format. The file must be in a wide format, meaning that the first column must contain the indicator names and the date for which the KPIs are submitted. The rest of the cells must contain the KPI values.
+Using the file upload submission, you can submit KPIs for multiple indicators and multiple months at once.
+
+![File Upload Submission](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/service-submission-file.png)
+
+Once you uploaded the file, you can map the columns of the file to the indicators of the service. Each indicator can only be mapped to one column. The column mapping "Date" must be mapped, otherwise the submission will fail.
+
+![File Upload Submission](https://raw.githubusercontent.com/scorpion-monitoring/screenshots/master/services/service-submission-file-mapped.png)
