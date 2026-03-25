@@ -14,6 +14,11 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
 	base: '/knowledgebase',
+	image: {
+		service: {
+			entrypoint: 'astro/assets/services/passthroughImageService'
+		}
+	},
 	integrations: [
 		icon(),
 		starlight({
