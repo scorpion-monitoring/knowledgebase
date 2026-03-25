@@ -15,9 +15,7 @@ import react from '@astrojs/react';
 export default defineConfig({
 	base: '/knowledgebase',
 	image: {
-		service: {
-			entrypoint: 'astro/assets/services/passthroughImageService'
-		}
+		service: { entrypoint: 'astro/assets/services/noop' }
 	},
 	integrations: [
 		icon(),
