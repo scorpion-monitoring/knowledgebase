@@ -17,6 +17,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PNPM_CONFIG_ONLY_BUILT_DEPENDENCIES: "esbuild,sharp"
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
