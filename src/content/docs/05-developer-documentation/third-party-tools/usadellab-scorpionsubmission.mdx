@@ -1,0 +1,105 @@
+---
+title: usadellab/ScorpionSubmission
+description: An automated tool for collecting service KPI metrics and submitting them to the ScorPIoN monitoring platform.
+lastUpdated: 2026-03-27
+authors:
+  - manuel-feser
+sidebar:
+  order: 1
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import PersonaSays from '@components/personas/PersonaSays.astro';
+
+## Quick Overview
+
+ScorpionSubmission is a Python automation tool that periodically collects usage metrics and performance indicators for your de.NBI/GHGA services from multiple data sources and submits them to Scorpion. It intelligently aggregates data from Matomo analytics, GitHub release statistics, and academic citation metrics, then formats and delivers them to the Scorpion API — all with a single command or scheduled job.
+
+---
+
+## Use Case: A Service Director's Day
+
+Ines is an Institute Director overseeing three de.NBI services: a web-based bioinformatics platform, a downloadable analysis tool with a GitHub repository, and a companion web portal.
+
+<PersonaSays persona="ines">
+Every month I had to spend 3 hours just collecting metrics. I'd log into Matomo for web stats, check GitHub for downloads, search Google Scholar for citations, compile it all into a spreadsheet, and manually submit to Scorpion. Error-prone and repetitive.
+</PersonaSays>
+
+**Her workflow with ScorpionSubmission:**
+
+```bash
+# One command, runs at 2 AM on the first of every month (via cron)
+python scorpion_submission.py --live
+```
+
+The script automatically:
+- Pulls user engagement metrics from her Matomo analytics
+- Counts downloads from GitHub releases
+- Retrieves citation counts from Google Scholar
+- Formats the data according to Scorpion requirements
+- Submits everything to the platform
+
+<PersonaSays persona="ines">
+Now it's completely automated. ScorpionSubmission runs every month without me lifting a finger. My metrics are consistently updated, I recovered those 3 hours, and I no longer worry about missing or incorrect submissions.
+</PersonaSays>
+
+---
+
+## Key Capabilities
+
+The tool intelligently handles three types of services:
+
+- **Web Portals**: Services with dedicated website pages tracked in Matomo (e.g., web applications serving specific audiences)
+- **Full Websites**: Entire domain analytics (e.g., comprehensive service platforms)
+- **Downloadable Tools**: Software packages measured by releases and citations (e.g., command-line tools, desktop applications)
+
+It supports flexible workflows: dry-run mode to preview submissions before going live, backfilling of historical months for data recovery, and selective processing of individual services when needed.
+
+## Understanding Service Categories
+
+The script handles three distinct types of services, each with different data sources and KPIs:
+
+### 1. Web Applications (Page-Specific Analytics)
+
+Services that exist as specific pages or sections within a larger Matomo-tracked website, each with their own analytics filter.
+
+- **KPIs**: Unique Users, Visits, Pageviews, Visit Duration, Citations
+- **Data Source**: Matomo
+
+### 2. Full-Site Services (Site-Wide Analytics)
+
+Services that constitute an entire website with overall analytics tracked.
+
+- **KPIs**: Unique Users, Visits, Pageviews, Visit Duration, Citations
+- **Data Source**: Matomo
+
+### 3. Standalone Tools (API-Driven KPIs)
+
+Downloadable tools where usage is measured through citations and downloads rather than web traffic.
+
+- **KPIs**: Downloads, Citations
+- **Data Source**: GitHub API, Matomo download tracking, or other external sources
+
+---
+
+## Getting Started
+
+For detailed setup, usage instructions, service configuration templates, and API requirements, visit the [ScorpionSubmission README on GitHub](https://github.com/usadellab/ScorpionSubmission).
+
+Key steps:
+
+<Steps>
+
+1. Install Python dependencies: `requests`, `python-dateutil`
+2. Configure environment variables for API keys (SCORPION_API_KEY, MATOMO_AUTH_TOKEN, etc.)
+3. Add your services to the configuration
+4. Run the script or schedule it as a cron job
+
+</Steps>
+
+## Reference
+
+- **Repository**: [usadellab/ScorpionSubmission](https://github.com/usadellab/ScorpionSubmission)
+- **License**: MIT
+- **Language**: Python
+
