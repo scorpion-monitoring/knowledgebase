@@ -1,0 +1,25 @@
+{
+  "config": {
+    "default": true,
+    // Prose is wrapped by the editor and Prettier leaves it alone; long lines are not an error.
+    "MD013": false,
+    // MDX pages use components (<Steps>, <Card>) as inline HTML.
+    "MD033": false,
+    // Starlight renders the title from frontmatter, so pages start at level 2.
+    "MD041": false,
+    // Table pipe spacing: the plan in docs/ uses compact tables and Prettier formats the others.
+    "MD060": false,
+    // The plan labels paragraphs with bold text (**Goals**, **Acceptance:**); that is deliberate.
+    "MD036": false,
+  },
+  "globs": ["**/*.md", "src/content/docs/**/*.mdx"],
+  "ignores": [
+    "tmp-fixtures/**",
+    "node_modules",
+    "dist",
+    ".astro",
+    "CLAUDE.md",
+    "tests/fixtures/**",
+    "src/data/generated/**",
+  ],
+}

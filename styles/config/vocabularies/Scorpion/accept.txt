@@ -1,0 +1,6 @@
+DOI
+KPI
+KPIs
+OIDC
+OSI approval
+SPDX licence identifier

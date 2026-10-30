@@ -1,0 +1,1 @@
+{"commands":[["vale","src/content/docs"],["astro","build"]],"expect":"pass"}

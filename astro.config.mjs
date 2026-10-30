@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
 import { unified } from '@astrojs/markdown-remark';
 import rehypeMermaid from 'rehype-mermaid';
+import rehypeBaseLinks from './src/plugins/rehype-base-links.mjs';
 import { buildSidebar } from './src/data/navigation.ts';
 
 const site = process.env.KB_SITE ?? 'https://scorpion-monitoring.github.io';
@@ -17,7 +18,12 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: { type: 'shiki', excludeLangs: ['mermaid'] },
     // Mermaid diagrams become inline SVG at build time; nothing runs in the browser.
-    processor: unified({ rehypePlugins: [[rehypeMermaid, { strategy: 'inline-svg' }]] }),
+    processor: unified({
+      rehypePlugins: [
+        [rehypeBaseLinks, { base }],
+        [rehypeMermaid, { strategy: 'inline-svg' }],
+      ],
+    }),
   },
   integrations: [
     starlight({
@@ -40,7 +46,7 @@ export default defineConfig({
         PageTitle: './src/components/overrides/PageTitle.astro',
         Footer: './src/components/overrides/Footer.astro',
       },
-      plugins: [starlightLinksValidator({ errorOnRelativeLinks: false })],
+      plugins: [starlightLinksValidator()],
     }),
   ],
 });

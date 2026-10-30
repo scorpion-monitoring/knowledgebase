@@ -50,7 +50,7 @@ export const terms: readonly Term[] = [
     'quantitative-and-qualitative-indicators',
     'quantitative and qualitative indicators',
   ),
-  t('Indicator frameworks', 'indicator-framework', 'indicator framework', ['KPI-set', 'KPI-sets']),
+  t('Indicator frameworks', 'indicator-framework', 'indicator framework', ['KPI-set']),
   t('Indicator frameworks', 'necessity-level', 'necessity level'),
   t('Indicator frameworks', 'thematic-category', 'thematic category'),
   t('Data', 'measurement', 'measurement'),
@@ -108,6 +108,7 @@ export function getTerm(id: string): Term | undefined {
 
 /** Other spelling and wording the Scorpion style rejects, independent of a single term. */
 export const forbiddenWording: ReadonlyArray<{ avoid: string; use: string }> = [
+  { avoid: 'KPI-sets', use: 'indicator frameworks' },
   { avoid: 'Organization', use: 'Organisation' },
   { avoid: 'Organizations', use: 'Organisations' },
   { avoid: 'organization', use: 'organisation' },

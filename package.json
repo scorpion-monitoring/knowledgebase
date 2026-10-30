@@ -10,7 +10,20 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "vale:gen": "tsx scripts/gen-vale.ts",
+    "check:astro": "astro check",
+    "check:format": "prettier --check .",
+    "check:markdown": "markdownlint-cli2",
+    "check:vale": "tsx scripts/gen-vale.ts --check && vale src/content/docs",
+    "check:content": "tsx scripts/check-content.ts",
+    "check": "pnpm run check:astro && pnpm run check:format && pnpm run check:markdown && pnpm run check:vale && pnpm run check:content",
+    "test": "vitest run && playwright test",
+    "test:unit": "vitest run",
+    "test:smoke": "playwright test",
+    "sync": "tsx scripts/not-available.ts sync",
+    "screenshots": "tsx scripts/not-available.ts screenshots",
+    "new": "tsx scripts/new.ts"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.5",
