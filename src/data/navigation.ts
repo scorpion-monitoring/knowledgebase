@@ -5,7 +5,7 @@
 
 import { journeyPagePath, journeys } from './journeys';
 import { optionalModules } from './modules';
-import { listPages } from './pages';
+import { docsRoot, listPages } from './pages';
 import { termGroups, terms } from './terms';
 
 export type NavEntry =
@@ -107,8 +107,11 @@ export interface StarlightSidebarItem {
 }
 
 /** Prunes missing pages, drafts (in production) and empty groups. */
-export function buildSidebar(production: boolean): StarlightSidebarItem[] {
-  const available = new Map(listPages().map((p) => [p.slug, p]));
+export function buildSidebar(
+  production: boolean,
+  root: string = docsRoot(),
+): StarlightSidebarItem[] {
+  const available = new Map(listPages(root).map((p) => [p.slug, p]));
   const keep = (slug: string) => {
     const p = available.get(slug);
     return p !== undefined && !(production && p.draft);

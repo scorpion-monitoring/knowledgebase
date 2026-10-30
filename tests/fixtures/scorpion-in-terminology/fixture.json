@@ -1,0 +1,1 @@
+{"commands":[["vale","src/content/docs"]],"expect":"fail","message":"tool-specific"}

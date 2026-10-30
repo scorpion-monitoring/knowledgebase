@@ -8,7 +8,7 @@
     "astro.config.mjs",
     "*.ts"
   ],
-  "exclude": ["dist", "tests/fixtures"],
+  "exclude": ["dist", "tests/fixtures", "tmp-fixtures"],
   "compilerOptions": {
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,

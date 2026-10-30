@@ -1,0 +1,1 @@
+{"commands":[["astro","build"]],"expect":"fail","message":"unknown term id"}
