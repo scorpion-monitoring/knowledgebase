@@ -1,0 +1,21 @@
+---
+import ModuleBadge from './ModuleBadge.astro';
+import { getModule } from '../data/modules';
+
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+if (!getModule(id)) {
+  throw new Error(`<RequiresModule id="${id}">: unknown module id. Add it to src/data/modules.ts.`);
+}
+---
+
+<aside class="starlight-aside starlight-aside--note kb-requires" aria-label="Requires a module">
+  <p class="starlight-aside__title">
+    Requires <ModuleBadge id={id} />
+  </p>
+  <div class="starlight-aside__content">
+    <slot />
+  </div>
+</aside>

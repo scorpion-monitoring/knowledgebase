@@ -1,0 +1,11 @@
+---
+interface Props {
+  version: string;
+}
+const { version } = Astro.props;
+if (!/^v\d+\.\d+\.\d+$/.test(version)) {
+  throw new Error(`<Since version="${version}">: must be a release tag like v0.13.0.`);
+}
+---
+
+<span class="kb-since">Since {version}</span>

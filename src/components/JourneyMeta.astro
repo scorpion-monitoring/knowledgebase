@@ -1,0 +1,23 @@
+---
+import ModuleBadge from './ModuleBadge.astro';
+import { getJourney } from '../data/journeys';
+
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+const journey = getJourney(id);
+if (!journey)
+  throw new Error(`<JourneyMeta id="${id}">: unknown journey id. Add it to src/data/journeys.ts.`);
+---
+
+<dl class="kb-journey-meta">
+  <dt>Actors</dt>
+  <dd>{journey.actors.join(', ')}</dd>
+  <dt>Roles</dt>
+  <dd>{journey.roles.length > 0 ? journey.roles.join(', ') : 'None needed'}</dd>
+  <dt>Modules</dt>
+  <dd>
+    {journey.modules.length > 0 ? journey.modules.map((m) => <ModuleBadge id={m} />) : 'Core only'}
+  </dd>
+</dl>

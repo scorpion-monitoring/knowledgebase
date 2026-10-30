@@ -1,0 +1,24 @@
+---
+import { getModule } from '../data/modules';
+import { isLinkable, pageUrl } from '../lib/pages';
+
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+const mod = getModule(id);
+if (!mod)
+  throw new Error(`<ModuleBadge id="${id}">: unknown module id. Add it to src/data/modules.ts.`);
+const slug = `modules/${mod.dir}`;
+const linked = mod.kind === 'optional' && isLinkable(slug);
+---
+
+{linked ? (
+  <a class="kb-badge" href={pageUrl(slug)} data-module={mod.id}>
+    {mod.name}
+  </a>
+) : (
+  <span class="kb-badge kb-badge--plain" data-module={mod.id}>
+    {mod.name}
+  </span>
+)}

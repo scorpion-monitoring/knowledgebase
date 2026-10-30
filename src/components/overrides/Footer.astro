@@ -1,0 +1,16 @@
+---
+import Default from '@astrojs/starlight/components/Footer.astro';
+
+const data = Astro.locals.starlightRoute.entry.data as { since?: string; verifiedAgainst?: string };
+---
+
+{(data.since || data.verifiedAgainst) && (
+  <p class="kb-page-versions">
+    {data.since && <span>Since {data.since}</span>}
+    {data.since && data.verifiedAgainst && ' · '}
+    {data.verifiedAgainst && <span>Verified against Scorpion {data.verifiedAgainst}</span>}
+  </p>
+)}
+<Default>
+  <slot />
+</Default>

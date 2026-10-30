@@ -1,0 +1,62 @@
+---
+import ModuleBadge from './ModuleBadge.astro';
+import { getModule, modules } from '../data/modules';
+import { profiles } from '../data/profiles';
+
+interface Props {
+  module?: string;
+}
+const { module: moduleId } = Astro.props;
+if (moduleId !== undefined && !getModule(moduleId)) {
+  throw new Error(
+    `<ProfileMatrix module="${moduleId}">: unknown module id. Add it to src/data/modules.ts.`,
+  );
+}
+const rows = moduleId ? modules.filter((m) => m.id === moduleId) : modules;
+const symbol = { included: '●', optional: '○' } as const;
+const word = { included: 'included', optional: 'optional' } as const;
+---
+
+<div class="kb-matrix">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Module</th>
+        {profiles.map((p) => (
+          <th scope="col">
+            <code>{p.name}</code>
+            {p.status === 'planned' && <span class="kb-planned"> (planned)</span>}
+          </th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((m) => (
+        <tr>
+          <th scope="row">
+            <ModuleBadge id={m.id} />
+          </th>
+          {profiles.map((p) => {
+            const inc = (p.modules as Record<string, 'included' | 'optional' | undefined>)[m.id];
+            return (
+              <td>
+                {inc ? (
+                  <>
+                    <span aria-hidden="true">{symbol[inc]}</span>
+                    <span class="sr-only">{word[inc]}</span>
+                  </>
+                ) : (
+                  <>
+                    <span aria-hidden="true">–</span>
+                    <span class="sr-only">not included</span>
+                  </>
+                )}
+              </td>
+            );
+          })}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <p class="kb-matrix__legend">● included · ○ optional · – not included</p>
+</div>
