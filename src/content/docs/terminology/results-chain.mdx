@@ -1,0 +1,60 @@
+---
+title: "Results chain"
+description: "The causal sequence from input through activity, output and outcome to impact, and where each kind of indicator sits on it."
+pageType: explanation
+audience: all
+modules: []
+term: "results-chain"
+short: "A results chain is the causal sequence from inputs through activities and outputs to outcomes and impact, along which indicators document what an intervention does and achieves."
+aliases: ["impact pathway","logic model"]
+related: ["indicator","indicator-classes","impact-assessment","evaluation","quantitative-and-qualitative-indicators"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A results chain is the causal sequence from inputs through activities and outputs to outcomes and impact, along which indicators document what an intervention does and achieves.
+
+## Explanation
+
+Results-based management describes an intervention as a chain with five stages: input, activity, output, outcome and impact. Each stage leads to the next. An <Term id="indicator" /> documents one stage.
+
+| Stage | What it is | Example for a data service |
+|---|---|---|
+| Input | The resources put in | Staff time, hardware, funding |
+| Activity | What the organisation does | Running the service, giving training courses |
+| Output | What the activities directly produce | A released database version, a trained group of users |
+| Outcome | Short-term effects on the target audience | Users reuse the data, users report satisfaction |
+| Impact | Medium to long-term, transformative effects | Efficiency gains in industry, topics taught in curricula |
+
+**Two sources, two granularities.** The five-stage chain is the general form in results-based management. The RI-PATHS guidebook for research infrastructures uses the shorter form of the impact pathway and types its indicators as *activity*, *outcome* or *impact* indicators:
+
+- Activity indicators refer to concrete activities that are visible to the public and under the full control of the organisation. Examples are the number of events organised and the number of scientific users.
+- Outcome indicators refer to short-term, direct results of these activities that the organisation does not directly control. Examples are the satisfaction of users, the uptake of datasets outside the infrastructure and citations of publications.
+- Impact indicators refer to transformative effects on the target audience and beyond, in the medium to long term. Examples are the inclusion of topics in curricula and increased trust in science.
+
+The KB shows both. On the five-stage chain, RI-PATHS *activity* indicators cover input, activity and output, *outcome* indicators cover outcome, and *impact* indicators cover impact. This placement is the KB's reading, because the RI-PATHS typing has three classes and the chain has five stages.
+
+**Spheres.** ELIXIR groups the same stages into three spheres. Resources, activities and outputs lie in the sphere of *control*. Outcomes lie in the sphere of *influence*. Impacts lie in the sphere of *interest*, where effects depend on other actors and the wider context. ELIXIR calls evidence from the spheres of control and influence *performance* and evidence from the sphere of interest *impact*. The boundary between the two is not always clear.
+
+The classification depends on the role of an indicator in the chain, not on its data type. The number of scientific users is an activity indicator. Citations are an outcome. Impact indicators are rarely directly measurable counts, so evidence tends to become more <Term id="quantitative-and-qualitative-indicators" /> towards the impact end. Another grouping, by what an indicator observes about a service, is described in <Term id="indicator-classes" />.
+
+## Example
+
+A training programme of a research infrastructure tracks the number of courses held (activity), the number of participants trained (output), the share of participants who use the taught methods one year later (outcome) and the inclusion of the methods in university curricula (impact).
+
+## Not to be confused with
+
+- <Term id="indicator-classes" />: a grouping by what is observed (operational, usage, scientific impact), not by position on the chain.
+- <Term id="thematic-category" />: a grouping by subject.
+- A project plan or a workflow, which describe the order of tasks, not the logic of effects.
+
+## References
+
+- [Griniece et al.: Guidebook for Socio-Economic Impact Assessment of Research Infrastructures (RI-PATHS), 2020](https://doi.org/10.5281/zenodo.3950043) – impact pathway logic for research infrastructures. The page's own wording summarises it.
+- [Melo et al.: Making European performance and impact assessment frameworks for research infrastructures glocal. F1000Research 11:278, 2022](https://doi.org/10.12688/f1000research.108804.2) – RI-PATHS indicators typed as activity, outcome or impact (Table 3), with examples from a national node.
+- [De Ruyck et al.: ELIXIR's Impact Toolkit. F1000Research 12 (ELIXIR):1127, 2023](https://doi.org/10.7490/f1000research.1119614.1) – maps the pathway to the spheres of control (resources, activities, outputs), influence (outcomes) and interest (impacts).
+- [Martin, Sousoni, Balsyte: ELIXIR's List of indicators, and other evidence, for monitoring performance and impact. F1000Research 12 (ELIXIR):1512, 2023](https://doi.org/10.7490/f1000research.1119654.1) – states that impact evidence lies in the sphere of interest and performance evidence in the spheres of control and influence, with no clear boundary.
+- [OECD DAC: Glossary of Key Terms in Evaluation and Results Based Management, 2002](https://cdn.sida.se/publications/files/sida37877en-glossary-of-key-terms-in-evaluation-and-results-based-management.pdf) – has entries for results chain, outputs, outcome and impacts. The five-stage wording on this page was not copied from it.

@@ -1,0 +1,43 @@
+---
+title: "Volatility"
+description: "How strongly the values of an indicator vary around their typical level over a series, and the different measures communities use for it."
+pageType: explanation
+audience: all
+modules: []
+term: "volatility"
+short: "Volatility is the variability of an indicator's values around their typical level over a series of periods."
+aliases: ["variability", "fluctuation"]
+related: ["time-series", "trend", "mean-absolute-percentage-deviation", "percentage-change"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+Volatility is the variability of an indicator's values around their typical level over a series of periods.
+
+## Explanation
+
+A series with high volatility jumps up and down. A series with low volatility stays close to its typical level. Volatility says nothing about direction. A steadily rising series can have low volatility, and a flat series with large spikes can have high volatility.
+
+Communities use the word differently. In finance, volatility usually means the standard deviation of returns, and a glossary there states: "Mathematically, volatility is the Variance or the Standard deviation." Other fields use other dispersion measures, for example the coefficient of variation or the mean absolute deviation, often expressed relative to the mean. The measures give different numbers for the same series.
+
+The KB uses volatility for the general idea. It treats the <Term id="mean-absolute-percentage-deviation" /> as one concrete measure of it. Always name the measure when you report a number.
+
+Volatility needs several periods. Dispersion measures that divide by the mean become unstable when the mean is near zero. Read volatility together with the <Term id="trend" />, because a strong trend inflates simple dispersion measures.
+
+## Example
+
+Two service providers each report about 1,000 requests per month on average. Provider A reports values between 950 and 1,050 each month. Provider B reports values between 200 and 1,800. Both have the same mean, but Provider B has much higher volatility, so a single month says less about its typical load.
+
+## Not to be confused with
+
+- <Term id="trend" />: the direction of the series, not the size of its fluctuation.
+- <Term id="mean-absolute-percentage-deviation" />: one concrete measure of volatility, not the general idea.
+- <Term id="percentage-change" />: a comparison of two values, not the spread of a whole series.
+
+## References
+
+- [Vernimmen.com glossary: Volatility](https://www.vernimmen.com/Practice/Glossary/definition/Volatility.html) - gives the finance usage, where volatility is the variance or standard deviation of a security's value or return.
+- [NIST Dataplot reference: Coefficient of variation](https://itl.nist.gov/div898/software/dataplot/refman2/auxillar/coefvari.htm) - defines "the ratio of the standard deviation to the mean", an example of a relative dispersion measure used outside finance.

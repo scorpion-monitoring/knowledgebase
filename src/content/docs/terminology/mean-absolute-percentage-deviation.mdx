@@ -1,0 +1,43 @@
+---
+title: "Mean absolute percentage deviation"
+description: "A relative dispersion measure: the mean absolute deviation of a series from its mean, divided by the absolute mean. Not the same as forecast error."
+pageType: explanation
+audience: all
+modules: []
+term: "mean-absolute-percentage-deviation"
+short: "The mean absolute percentage deviation is the mean of the absolute differences between each value of a series and the series mean, divided by the absolute mean."
+aliases: ["relative mean absolute deviation", "MAPD"]
+related: ["volatility", "mean-absolute-percentage-error", "time-series", "trend"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+The mean absolute percentage deviation is the mean of the absolute differences between each value of a series and the series mean, divided by the absolute mean.
+
+## Explanation
+
+For values v₁ to vₙ with mean m, the measure is (1/n) × Σ |vᵢ − m| / |m|. Multiply by 100 to express it as a percentage. A result of 0 means all values are equal. Larger results mean the values spread more widely around the mean.
+
+It is a relative form of the average absolute deviation. The unit cancels, so you can compare series with different units or sizes. The measure is not defined when the mean is zero, and it is unstable when the mean is close to zero. It does not use squares, so extreme values affect it less than they affect the standard deviation.
+
+The name is not standardised. Sources call the same or a closely related quantity relative mean absolute deviation, or use a different centre such as the median. The KB uses "mean absolute percentage deviation" for the formula above, with the mean as centre. The KB treats it as one concrete measure of <Term id="volatility" />.
+
+A frequent confusion arises from the abbreviation "MAPE". It usually means the error of a forecast, which compares predictions with actual values. The KB keeps that measure under <Term id="mean-absolute-percentage-error" /> and uses the deviation measure only for the spread of a series around its own mean.
+
+## Example
+
+A service provider reports 90, 100, 110 and 100 downloads in four months. The mean is 100. The absolute deviations are 10, 0, 10 and 0, with a mean of 5. The mean absolute percentage deviation is 5 / 100 = 5 %.
+
+## Not to be confused with
+
+- <Term id="mean-absolute-percentage-error" />: the error of a forecast against actual values, not the spread of a series around its own mean.
+- <Term id="volatility" />: the general idea of variability, of which this is one measure.
+- Standard deviation and coefficient of variation: related dispersion measures that square the deviations.
+
+## References
+
+- [NIST/SEMATECH e-Handbook of Statistical Methods: Measures of scale](https://itl.nist.gov/div898/handbook/eda/section3/eda356.htm) - defines the average absolute deviation and notes it "does not square the distance from the mean".
+- [NIST Dataplot reference: Coefficient of variation](https://itl.nist.gov/div898/software/dataplot/refman2/auxillar/coefvari.htm) - defines "the ratio of the standard deviation to the mean" and warns of sensitivity when the mean is near zero.

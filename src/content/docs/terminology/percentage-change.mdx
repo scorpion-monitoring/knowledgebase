@@ -1,0 +1,45 @@
+---
+title: "Percentage change"
+description: "The change between an earlier and a later value, expressed as a percentage of the earlier value, and how it differs from a percentage point."
+pageType: explanation
+audience: all
+modules: []
+term: "percentage-change"
+short: "Percentage change is the difference between a later and an earlier value, divided by the absolute earlier value and multiplied by 100."
+aliases: ["relative change", "rate of change"]
+related: ["trend", "baseline", "time-series", "reporting-period"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+Percentage change is the difference between a later and an earlier value, divided by the absolute earlier value and multiplied by 100.
+
+## Explanation
+
+The formula is (new − old) / |old| × 100. A result of 25 means the value rose by a quarter. A result of −10 means it fell by a tenth. The earlier value, often a <Term id="baseline" />, is the reference. Eurostat writes the same calculation as the later value divided by the earlier value, minus one, times 100.
+
+Percentage change is undefined when the earlier value is zero. It is also unstable when the earlier value is close to zero, because a small absolute change gives a very large percentage. Report the absolute values alongside it.
+
+A percentage point is a different unit. It is the difference between two percentages. If availability rises from 90 % to 95 %, it gains 5 percentage points. The percentage change is about 5.6 %. Using "percent" where "percentage points" is meant is a frequent error.
+
+Chained changes do not add up. A rise of 10 % followed by a fall of 10 % leaves the value 1 % below the start.
+
+The absolute value in the denominator makes the sign of the result follow the direction of change, also for negative earlier values. Some sources omit it. The KB uses the form with the absolute value.
+
+## Example
+
+A research infrastructure counts 800 user sessions in one quarter and 1,000 in the next. The change is (1,000 − 800) / 800 × 100 = 25 %. If the share of sessions from abroad rises from 30 % to 36 %, that is 6 percentage points, or a 20 % change.
+
+## Not to be confused with
+
+- Percentage point: the unit for the difference between two percentages, not a relative change.
+- <Term id="trend" />: the overall direction of change across a whole series. A percentage change compares two points.
+- <Term id="baseline" />: the starting value that the change is measured against.
+
+## References
+
+- [Eurostat Statistics Explained: Percentage change](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Percentage_change) - gives the rate of change between two points in time as "[(Number at later time ÷ Number at earlier time) - 1] × 100".
+- [Eurostat Statistics Explained: Percentage point](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Percentage_point) - states that "The term percentage point is used when comparing two different percentages."

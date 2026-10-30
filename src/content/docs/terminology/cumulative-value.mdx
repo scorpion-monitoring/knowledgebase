@@ -1,0 +1,42 @@
+---
+title: "Cumulative value"
+description: "A running total of an indicator since a chosen start point, as opposed to the value for a single period."
+pageType: explanation
+audience: all
+modules: []
+term: "cumulative-value"
+short: "A cumulative value is the running total of an indicator's per-period values from a chosen start point up to and including the current period."
+aliases: ["running total", "cumulative total"]
+related: ["time-series", "aggregation", "reporting-period", "period-normalisation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A cumulative value is the running total of an indicator's per-period values from a chosen start point up to and including the current period.
+
+## Explanation
+
+Indicators can be reported in two ways. A per-period value covers one <Term id="reporting-period" />, for example the downloads in March. A cumulative value covers everything since a start point, for example the downloads since the beginning of the year or since the service started.
+
+The cumulative value of a period equals the cumulative value of the previous period plus the per-period value. It never decreases if all per-period values are non-negative. The last value of a cumulative series equals the sum of all per-period values.
+
+Cumulative values suit events that accumulate, such as publications, registered users or training courses held. They do not suit quantities that describe a state, such as availability in percent, because adding those values has no meaning.
+
+State the start point and whether a value is cumulative or per period. Mixing both in one series makes the values incomparable. Converting between the two forms is possible when every period is known: differences of cumulative values give per-period values.
+
+## Example
+
+A service provider counts the publications that cite its service. In January there are 4, in February 6 and in March 3. The per-period values are 4, 6 and 3. The cumulative values since January are 4, 10 and 13.
+
+## Not to be confused with
+
+- <Term id="aggregation" />: the general act of combining values. A cumulative value is a sum over time that is kept for every period.
+- <Term id="time-series" />: the ordered values themselves. A cumulative series is one possible kind of time series.
+- <Term id="period-normalisation" />: scaling values to a common period length, which does not accumulate them.
+
+## References
+
+- [Mathwords: cumulative sum](https://www.mathwords.com/c/cumulative_sum.htm) - defines a cumulative sum as "a running total where each entry equals the sum of all previous values in the data set" up to and including that point.
