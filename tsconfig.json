@@ -10,6 +10,8 @@
   ],
   "exclude": ["dist", "tests/fixtures", "tmp-fixtures"],
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "@components/*": ["src/components/*"], "@data/*": ["src/data/*"] },
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
     "noUncheckedIndexedAccess": true

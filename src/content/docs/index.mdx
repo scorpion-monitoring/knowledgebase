@@ -4,6 +4,28 @@ description: Documentation for Scorpion, the service registry and KPI tracker fo
 pageType: explanation
 audience: all
 template: splash
+hero:
+  tagline: Documentation for Scorpion, the service registry and KPI tracker for research infrastructures.
 ---
 
-The Scorpion Knowledge Base is being built. This page is filled in the K0 skeleton branch.
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Pick the guide that matches what you do with a Scorpion instance. New here? Read [How to use this KB](/start/how-to-use-this-kb/) first.
+
+<CardGrid>
+  <Card title="I use an instance" icon="pencil">
+    Registration, services and KPI values, step by step. Start with the [user guide](/user/).
+  </Card>
+  <Card title="I run an instance" icon="setting">
+    Deployment, configuration, users and operations. Start with the [administrator guide](/admin/).
+  </Card>
+  <Card title="I build on Scorpion" icon="puzzle">
+    Architecture, module authoring and the public API. Start with the [developer guide](/developer/).
+  </Card>
+  <Card title="Terminology" icon="open-book">
+    Monitoring and KPI vocabulary, independent of any tool. See the [terminology](/terminology/).
+  </Card>
+  <Card title="Which modules does my instance have?" icon="list-format">
+    Find out which optional modules your instance runs. The [modules overview](/modules/) lists every optional module and the profiles that include it.
+  </Card>
+</CardGrid>

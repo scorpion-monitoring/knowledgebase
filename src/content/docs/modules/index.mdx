@@ -1,0 +1,26 @@
+---
+title: Modules
+description: The optional Scorpion modules, the profiles that include them and where each module is documented.
+pageType: reference
+audience: all
+---
+
+import ProfileMatrix from '@components/ProfileMatrix.astro';
+import ModuleBadge from '@components/ModuleBadge.astro';
+import { optionalModules } from '@data/modules';
+
+Each optional module has its own section that routes users, administrators and developers to the right pages. The seven core modules are in every profile and are documented in the audience guides.
+
+## Optional modules
+
+<ul>
+  {optionalModules.map((m) => (
+    <li>
+      <ModuleBadge id={m.id} /> <code>{m.id}</code>{m.released ? ` (since ${m.since})` : ' (planned)'}
+    </li>
+  ))}
+</ul>
+
+## Profiles
+
+<ProfileMatrix />

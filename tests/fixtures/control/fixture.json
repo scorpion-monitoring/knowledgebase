@@ -1,1 +1,1 @@
-{"commands":[["vale","src/content/docs"],["astro","build"]],"expect":"pass"}
+{"commands": [["tsx", "scripts/check-content.ts"], ["vale", "src/content/docs"], ["astro", "build"]], "expect": "pass", "html": {"file": "dist/fixture-page/index.html", "contains": ["Requires", "Since v0.1.0", "Verified against Scorpion v0.13.0"]}}

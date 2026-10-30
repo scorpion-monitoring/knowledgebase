@@ -15,12 +15,22 @@ export interface ScorpionModule {
   dependsOn: readonly string[];
   /** Directory under `src/content/docs/modules/` (dots become dashes). */
   dir: string;
+  /** KB milestone that fills the module's section (docs/implementation.md §6.3). */
+  milestone: string;
   /** Release that introduced the module, or undefined while it is planned. */
   since?: string;
   released: boolean;
 }
 
 const dir = (id: string) => id.replaceAll('.', '-');
+
+function milestoneOf(id: string, kind: ModuleKind): string {
+  if (kind === 'core') return 'K3';
+  if (id.startsWith('registry.') || id === 'public-api') return 'K4';
+  if (id === 'kpi.impact') return 'K5b';
+  if (id.startsWith('kpi.')) return 'K5a';
+  return 'K6';
+}
 
 function mod(
   id: string,
@@ -29,7 +39,16 @@ function mod(
   dependsOn: string[],
   since?: string,
 ): ScorpionModule {
-  return { id, name, kind, dependsOn, dir: dir(id), since, released: since !== undefined };
+  return {
+    id,
+    name,
+    kind,
+    dependsOn,
+    dir: dir(id),
+    milestone: milestoneOf(id, kind),
+    since,
+    released: since !== undefined,
+  };
 }
 
 export const modules = [
