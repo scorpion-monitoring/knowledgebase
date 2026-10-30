@@ -1,0 +1,42 @@
+---
+title: "Reporting period"
+description: "A reporting period is the span of time that a set of reported values covers. Learn why it must be stated and how it differs from the date of submission."
+pageType: explanation
+audience: all
+modules: []
+term: "reporting-period"
+short: "A reporting period is the span of time, with a defined start and end, that a set of reported indicator values covers."
+aliases: ["reporting interval", "reference period"]
+related: ["reporting", "measurement", "time-series", "period-normalisation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A reporting period is the span of time, with a defined start and end, that a set of reported indicator values covers.
+
+## Explanation
+
+Every reported value describes something that happened within a span of time. The reporting period names that span. Common lengths are a month, a quarter and a year.
+
+The reporting period is not the date on which a value is submitted. A value for March is usually submitted in April or later. Keeping the two dates apart lets a reader place each value correctly on a <Term id="time-series" />.
+
+<Term id="reporting" /> works best with one period length for all contributors. If contributors use different lengths, values must be converted before they can be compared. This conversion is called <Term id="period-normalisation" />.
+
+Some indicators describe a state at one moment, such as the number of staff on a given day. The KB treats the reporting period of such a value as the span in which the moment falls, and expects the report to say so.
+
+## Example
+
+A service provider reports its number of user requests for each calendar month. The value for March covers 1 March to 31 March. The provider sends it on 5 April. The period is March, and the submission date is 5 April.
+
+## Not to be confused with
+
+- Submission date: when the report is delivered, not what time it covers.
+- period normalisation: the conversion of values from different period lengths to one common length.
+- time series: the ordered sequence of values over many periods.
+
+## References
+
+- COUNTER, "Code of Practice Release 5.1", Appendix A, glossary of terms, entry "Reporting period". [https://cop5.countermetrics.org/en/5.1/appendices/a-glossary-of-terms.html](https://cop5.countermetrics.org/en/5.1/appendices/a-glossary-of-terms.html) - defines it as "The total time period covered in a usage report."

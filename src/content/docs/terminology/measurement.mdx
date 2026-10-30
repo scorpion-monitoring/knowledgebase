@@ -1,0 +1,45 @@
+---
+title: "Measurement"
+description: "Measurement is the process of determining a value, and in monitoring also the data source and method used."
+pageType: explanation
+audience: all
+modules: []
+term: "measurement"
+short: "A measurement is the process of determining a value; in service monitoring the term also names the data source and method used to obtain that value."
+aliases: ["means of measurement"]
+related: ["observation","metric","indicator","data-provenance"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A measurement is the process of determining a value; in service monitoring the term also names the data source and method used to obtain that value.
+
+## Explanation
+
+The term has two senses, and both are in use.
+
+The first sense comes from the standard on quality management vocabulary. ISO 9000 defines a measurement as a "process to determine a value". It is an activity, and its result is a value.
+
+The second sense is common in research-infrastructure monitoring. Here the measurement is the data source and the method used to obtain a value. Examples are web analytics, server log analysis, download counters and literature databases. The ELIXIR Impact Toolkit uses it this way when it asks authors to separate the <Term id="indicator" /> from the <Term id="metric" /> and from the measurement.
+
+The KB uses both senses and says which it means where it matters. In the three-part distinction of the indicator overview, "measurement" is the second sense: the source and method. The recorded result of the process is called an <Term id="observation" />.
+
+## Example
+
+A service provider wants to know how many people use a web application. The indicator is "use of the service". The metric is the number of unique visitors per month. The measurement is web analytics on the application's pages. A second provider reaches the same metric through the analysis of server logs, which is a different measurement.
+
+## Not to be confused with
+
+- <Term id="observation" />: the value that results from a measurement, together with the period it refers to.
+- <Term id="metric" />: how an indicator is quantified, for example as a total or an average.
+- <Term id="indicator" />: what is assessed.
+
+## References
+
+- [ISO 9000:2015, Quality management systems – Fundamentals and vocabulary](https://law.resource.org/pub/us/cfr/ibr/inc/iso/iso.9000.2015.pdf), clause 3.11.4 – defines measurement as a "process to determine a value". The 2015 text was checked in a public copy of the standard. The 2026 edition replaces it and its numbering was not checked.
+- [De Ruyck et al.: ELIXIR's Impact Toolkit. F1000Research 12 (ELIXIR):1127, 2023](https://doi.org/10.7490/f1000research.1119614.1) – recommends differentiating indicator, metric and measurement, with the sources used for a metric as the measurement.
+- [Durinx et al.: ELIXIR-EXCELERATE D3.3, 2019](https://doi.org/10.5281/zenodo.3362082) – describes usage statistics compiled from web analytics and log analysis.
+- [Research Infrastructure Metrics Ontology (RIMO), version 0.2.0](https://github.com/JKoblitz/BH25-metrics), Koblitz and the BioHackathon Europe 2025 METRICS Team, 2025 – models the means of measurement as a class that an indicator is measured by, which is the data source and method sense.

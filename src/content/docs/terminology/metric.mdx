@@ -1,0 +1,43 @@
+---
+title: "Metric"
+description: "A metric states how an indicator is quantified, for example as a total, an average or a count per time interval."
+pageType: explanation
+audience: all
+modules: []
+term: "metric"
+short: "A metric is a quantifiable measure used to track and assess the status of a specific process; it states how an indicator is quantified."
+aliases: ["metrics"]
+related: ["indicator","measurement","key-performance-indicator","measure"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A metric is a quantifiable measure used to track and assess the status of a specific process; it states how an indicator is quantified.
+
+## Explanation
+
+The EOSC-Synergy service quality baseline defines a metric as "a quantifiable measure used to track and assess the status of a specific process". In the research-infrastructure setting, a metric also specifies how an <Term id="indicator" /> is quantified. It chooses the calculation: a total, an average, a count per time interval, or the share of items above a limit.
+
+One indicator can have several metrics. The indicator "citation impact" can be quantified as average citations, total citations or the number of highly cited publications. The metric fixes which of these is reported. The <Term id="measurement" /> then says where the data for the metric come from.
+
+The EOSC-Synergy baseline asks that metrics are collected over time with timestamps, so that values can be queried per time interval. See <Term id="time-series" />.
+
+Outside this setting, "metric" has other meanings. In mathematics a metric is a distance function. In some software and operations communities a metric is the raw counter itself. The KB keeps the meaning above.
+
+## Example
+
+A repository wants to document how much its data are used. The indicator is "data use". The metric is "downloads per month". The measurement is the download counter of the repository's web server.
+
+## Not to be confused with
+
+- <Term id="indicator" />: what is assessed. A metric is how it is quantified.
+- <Term id="measure" />: a broader term for a variable that is assigned a value.
+- <Term id="measurement" />: the source and method, or the process of determining a value.
+
+## References
+
+- [Orviz et al.: A set of Common Service Quality Assurance Baseline Criteria for Research Projects (EOSC-Synergy), version 2.1, 2022](https://eosc-synergy.github.io/service-qa-baseline/) – source of the quoted definition (section 7.3.2, "Metrics") and of the advice to collect metrics over time with timestamps.
+- [De Ruyck et al.: ELIXIR's Impact Toolkit. F1000Research 12 (ELIXIR):1127, 2023](https://doi.org/10.7490/f1000research.1119614.1) – distinguishes indicator, metric and measurement, with average, total and highly cited publications as metrics of citation impact.

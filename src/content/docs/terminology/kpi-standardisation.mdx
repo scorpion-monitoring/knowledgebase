@@ -1,0 +1,39 @@
+---
+title: "KPI standardisation"
+description: "KPI standardisation also fixes how each KPI is measured and on which scale, so values can be compared across providers."
+pageType: explanation
+audience: all
+modules: []
+term: "kpi-standardisation"
+short: "KPI standardisation is the process in which best practices emerge among providers and KPIs are defined in terms of what is tracked, how it is measured and on which scale."
+aliases: ["standardisation of KPIs","KPI standardization"]
+related: ["kpi-harmonisation","federated-monitoring","key-performance-indicator","metric","measurement","cumulative-value","target"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+KPI standardisation is the process in which best practices emerge among providers and KPIs are defined in terms of what is tracked, how it is measured and on which scale.
+
+## Explanation
+
+The source describes standardisation as the process "whereby best practices emerge among service providers and KPIs are defined in terms of which KPIs are tracked, which method is used to measure KPIs, and on which scale they are measured (e.g. cumulatively or per time interval)".
+
+Read against the terms of this KB, <Term id="kpi-harmonisation" /> fixes the set of <Term id="indicator" />s. Standardisation fixes the <Term id="measurement" /> and the <Term id="metric" /> as well. In terms of a KPI specification it covers the data source, the calculation rule and the frequency. Only standardised KPIs can be aggregated across providers in a meaningful way.
+
+Neither term includes a <Term id="target" />. A set of KPIs can be fully standardised without fixing which values a service is expected to reach.
+
+## Example
+
+The providers of the previous example agree that "unique visitors per month" is counted by web analytics with bot traffic removed, and that each provider reports the value per month and not as a running total. The values are now comparable and can be added up.
+
+## Not to be confused with
+
+- <Term id="kpi-harmonisation" />: agreement on the set only.
+- Standardisation by a formal standards body. Here it means agreement among providers, which may or may not become a formal standard.
+
+## References
+
+- [Feser et al.: Evolving bioinformatics services – the journey of KPI metrics with […]. Journal of Integrative Bioinformatics 22(4), 20250048, 2026](https://doi.org/10.1515/jib-2025-0048) – introduces both terms; the quotation above is from its introduction.

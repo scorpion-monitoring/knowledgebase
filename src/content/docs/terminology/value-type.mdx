@@ -1,0 +1,43 @@
+---
+title: "Value type"
+description: "The data type of an indicator value, such as integer, decimal, percentage, boolean or text, which fixes how values are stored, validated and compared."
+pageType: explanation
+audience: all
+modules: []
+term: "value-type"
+short: "A value type is the data type of an indicator value, such as integer, decimal, boolean or text, which fixes the set of values the indicator may take."
+aliases: ["data type", "datatype"]
+related: ["indicator", "observation", "unit-of-measurement", "aggregation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A value type is the data type of an indicator value, such as integer, decimal, boolean or text, which fixes the set of values the indicator may take.
+
+## Explanation
+
+Every <Term id="indicator" /> has a value type. The type decides which values are valid, how they are stored and which operations make sense. A count of downloads is a whole number. A response time is a decimal number. "Has an open-access policy" is a boolean. A free-text statement is a string.
+
+Data type standards describe a datatype as a set of values with the operations on them. The W3C XML Schema datatypes give each datatype a value space, a lexical space and a set of functions and relations. ISO/IEC 11404 defines language-independent general-purpose datatypes, so that different systems can map their own types onto a shared set.
+
+The value type is separate from the <Term id="unit-of-measurement" />. A decimal can be a duration in seconds or a share in per cent. Some value types, such as a percentage, carry a unit by convention. The KB treats the percentage as a decimal value with the unit per cent, and notes where a source treats it as a type of its own.
+
+The value type limits <Term id="aggregation" />. You can sum integers and decimals. You cannot sum booleans or text, but you can count them.
+
+## Example
+
+A research infrastructure defines three indicators for its service providers. "Number of users" is an integer. "Share of requests answered within one second" is a decimal with the unit per cent. "Service has a public privacy statement" is a boolean. A provider who enters "many" for the first indicator breaks the value type, and the value is rejected.
+
+## Not to be confused with
+
+- <Term id="unit-of-measurement" />: the reference quantity a number is expressed in. The value type says what kind of value it is.
+- <Term id="observation" />: one recorded value. The value type applies to all observations of an indicator.
+- <Term id="indicator" />: the quantity as a whole, of which the value type is one property.
+
+## References
+
+- [W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes, W3C Recommendation, 2012](https://www.w3.org/TR/xmlschema11-2/) - defines a datatype by its value space, lexical space and operations, and lists built-in types such as `decimal`, `integer` and `boolean`.
+- [ISO/IEC 11404:2007, General-Purpose Datatypes (GPD)](https://www.iso.org/standard/39479.html) - language-independent set of primitive and constructed datatypes that other languages map onto.

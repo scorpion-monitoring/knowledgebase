@@ -1,0 +1,45 @@
+---
+title: "Observation"
+description: "One recorded value of an indicator for a defined period or point in time, produced by a measurement."
+pageType: explanation
+audience: all
+modules: []
+term: "observation"
+short: "An observation is one recorded value of an indicator for a defined period or point in time, with the unit, source and context needed to interpret it."
+aliases: ["data point", "observed value", "indicator value"]
+related: ["measurement", "indicator", "time-series", "value-type", "unit-of-measurement", "data-provenance"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+An observation is one recorded value of an indicator for a defined period or point in time, with the unit, source and context needed to interpret it.
+
+## Explanation
+
+An observation is the result, not the act. The act of determining a value is a <Term id="measurement" />. The measurement follows a method and uses a data source. The observation is the single value that it leaves behind, such as "4,213 downloads in March 2025".
+
+Two times can belong to an observation. The first is the time the value applies to, for example the reporting month. The second is the time the value was produced or recorded. The two differ whenever providers report late or correct earlier values. Standards for observation data keep these apart. The W3C vocabulary for sensors and observations calls them the phenomenon time and the result time.
+
+A series of observations of the same <Term id="indicator" /> over successive periods forms a <Term id="time-series" />.
+
+Communities use the word in two ways. The observation-data standards named below define an observation as the act or event that produces a result, so the value is its result. Statistical practice, for example the SDMX standard, calls the value itself the observation. The KB follows the statistical usage and calls the value the observation. It uses "measurement" for the act.
+
+## Example
+
+A service provider reports the number of unique users of its web service for each calendar month. The figure for March 2025, together with its unit (users), the period it covers and the way the provider counted it, is one observation. The twelve figures for 2025 are twelve observations.
+
+## Not to be confused with
+
+- <Term id="measurement" />: the process of determining a value. An observation is the value it produces.
+- <Term id="indicator" />: the quantity that is observed. One indicator has many observations.
+- <Term id="time-series" />: an ordered set of observations of one indicator.
+- <Term id="target" />: a desired value, not a recorded one.
+
+## References
+
+- [Semantic Sensor Network Ontology, W3C Recommendation, 2017](https://www.w3.org/TR/vocab-ssn/) - defines an observation as the "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest", and separates phenomenon time from result time.
+- [ISO 19156:2023, Geographic information - Observations, measurements and samples](https://www.iso.org/standard/82463.html) - conceptual model for exchanging records of observations and their results.
+- [SDMX Glossary, version 1.0, February 2016](https://sdmx.org/wp-content/uploads/SDMX_Glossary_Version_1_0_February_2016.htm) - entry "Observation value": the "value of a particular variable", the field that holds the data; this is the statistical usage the KB follows.

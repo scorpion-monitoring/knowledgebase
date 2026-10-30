@@ -4,6 +4,10 @@ message: "Use '%s' instead of '%s'."
 level: error
 ignorecase: false
 swap:
+  'harmonization': 'KPI harmonisation'
+  'Harmonization': 'KPI harmonisation'
+  'standardization': 'KPI standardisation'
+  'Standardization': 'KPI standardisation'
   'KPI-set': 'indicator framework'
   'period normalization': 'period normalisation'
   'service catalog': 'service catalogue'

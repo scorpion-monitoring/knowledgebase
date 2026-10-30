@@ -1,0 +1,42 @@
+---
+title: "Monitoring"
+description: "Monitoring is determining the status of a system, process or activity, repeated over time so that changes can be seen."
+pageType: explanation
+audience: all
+modules: []
+term: "monitoring"
+short: "Monitoring is determining the status of a system, a process, a product, a service or an activity, carried out at different stages or times."
+aliases: ["service monitoring"]
+related: ["evaluation","federated-monitoring","reporting","measurement","time-series"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+Monitoring is determining the status of a system, a process, a product, a service or an activity, carried out at different stages or times.
+
+## Explanation
+
+ISO 9000 defines monitoring as "determining the status of a system, a process, a product, a service, or an activity". Its notes add that this can need checking, supervising or critically observing, and that monitoring is generally carried out at different stages or at different times.
+
+For services, monitoring is periodic and continuous. It includes the periodic technical testing of a service by a monitoring system. It also includes the regular collection of <Term id="indicator" /> values over time, so that a <Term id="trend" /> can be seen.
+
+Monitoring produces a continuous record, such as monthly KPI submissions or periodic tests of an endpoint. <Term id="evaluation" /> interprets that record at specific intervals. In the quality cycle, monitoring covers the observing part of quality control. Comparing the observed value with a goal completes the control loop and needs a <Term id="target" />. Where no target exists, this comparison is deferred to evaluation.
+
+## Example
+
+A data repository tests its public endpoint every five minutes and records whether it answers. It also collects the number of downloads each month. Both are monitoring: the first at a high frequency, the second as a monthly record of use.
+
+## Not to be confused with
+
+- <Term id="evaluation" />: the interpretation of monitoring results against objectives, at intervals.
+- <Term id="reporting" />: the communication of monitoring results to others.
+- <Term id="measurement" />: the process of determining a single value. Monitoring repeats it over time.
+
+## References
+
+- [ISO 9000:2015, Quality management systems – Fundamentals and vocabulary](https://law.resource.org/pub/us/cfr/ibr/inc/iso/iso.9000.2015.pdf), clause 3.11.3 and notes – defines monitoring. The 2015 text was checked in this public copy. The 2026 edition replaces it and its numbering was not checked.
+- [Orviz et al.: A set of Common Service Quality Assurance Baseline Criteria for Research Projects (EOSC-Synergy), version 2.1, 2022](https://eosc-synergy.github.io/service-qa-baseline/) – requires monitoring of public endpoints and functional criteria for services in production.
+- [Durinx et al.: ELIXIR-EXCELERATE D3.3, 2019](https://doi.org/10.5281/zenodo.3362082) – describes the regular collection of usage statistics.

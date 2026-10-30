@@ -1,0 +1,41 @@
+---
+title: "Time series"
+description: "An ordered sequence of values of one indicator over successive periods, used to follow how it develops."
+pageType: explanation
+audience: all
+modules: []
+term: "time-series"
+short: "A time series is an ordered sequence of observations of one indicator for successive points in time or reporting periods."
+aliases: ["series"]
+related: ["observation", "indicator", "trend", "aggregation", "cumulative-value", "period-normalisation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A time series is an ordered sequence of observations of one indicator for successive points in time or reporting periods.
+
+## Explanation
+
+A time series puts <Term id="observation" /> values of one <Term id="indicator" /> in time order. It shows how the indicator develops and makes the <Term id="trend" /> visible. A single observation says little. A series shows growth, decline, seasonality and gaps.
+
+A common textbook definition describes a time series as "an ordered sequence of values of a variable at equally spaced time intervals". Monitoring data often follows this pattern, for example one value per month. In practice, periods can be missing when a provider does not report. The KB also calls a series with gaps a time series.
+
+All observations in a series use the same <Term id="unit-of-measurement" /> and the same period length. If periods differ, convert them first. See <Term id="period-normalisation" />.
+
+## Example
+
+A service provider reports the number of publications that cite its service for each year from 2019 to 2025. The seven yearly values, in year order, are a time series. A chart of them shows whether citations rise or fall.
+
+## Not to be confused with
+
+- <Term id="observation" />: a single value. The series is the ordered set of them.
+- <Term id="cumulative-value" />: a running total calculated from a series.
+- <Term id="aggregation" />: combines values into one. A series keeps them separate.
+- <Term id="trend" />: the direction of change that you read from a series.
+
+## References
+
+- [NIST/SEMATECH e-Handbook of Statistical Methods, 6.4.1 Definitions, applications and techniques](https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc41.htm) - defines a time series as "An ordered sequence of values of a variable at equally spaced time intervals."

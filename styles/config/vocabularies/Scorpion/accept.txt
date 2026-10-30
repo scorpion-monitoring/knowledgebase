@@ -1,5 +1,7 @@
 DOI
 KPI
+KPI harmonisation
+KPI standardisation
 KPIs
 OIDC
 OSI approval
