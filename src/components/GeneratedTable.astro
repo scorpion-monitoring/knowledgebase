@@ -1,0 +1,45 @@
+---
+import { readGenerated } from '../lib/generated';
+
+interface Props {
+  /** File name inside src/data/generated/, a JSON array of objects. */
+  file: string;
+  columns?: { key: string; label: string }[];
+}
+const { file, columns } = Astro.props;
+const rows = readGenerated(file);
+const cols = columns ?? Object.keys(rows?.[0] ?? {}).map((key) => ({ key, label: key }));
+---
+
+{rows === undefined ? (
+  <aside
+    class="starlight-aside starlight-aside--caution kb-not-generated"
+    aria-label="Reference not yet generated"
+  >
+    <p class="starlight-aside__title">Reference not yet generated</p>
+    <div class="starlight-aside__content">
+      <p>
+        The table <code>{file}</code> is written by <code>pnpm sync</code> and does not exist yet.
+      </p>
+    </div>
+  </aside>
+) : (
+  <table class="kb-generated">
+    <thead>
+      <tr>
+        {cols.map((c) => (
+          <th scope="col">{c.label}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr>
+          {cols.map((c) => (
+            <td>{String(r[c.key] ?? '')}</td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}

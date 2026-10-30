@@ -1,0 +1,20 @@
+---
+import { getTerm, termPagePath } from '../data/terms';
+import { getPage, isLinkable, pageUrl } from '../lib/pages';
+
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+const term = getTerm(id);
+if (!term) throw new Error(`<Term id="${id}">: unknown term id. Add it to src/data/terms.ts.`);
+const slug = termPagePath(id);
+const page = getPage(slug);
+const label = Astro.slots.has('default') ? await Astro.slots.render('default') : term.preferred;
+---
+
+{isLinkable(slug) ? (
+  <a class="kb-term" href={pageUrl(slug)} title={page?.short} set:html={label} />
+) : (
+  <span class="kb-term kb-term--plain" set:html={label} />
+)}

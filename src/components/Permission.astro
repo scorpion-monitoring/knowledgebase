@@ -1,0 +1,11 @@
+---
+import { assertKnownPermission } from '../lib/permissions';
+
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+assertKnownPermission(id);
+---
+
+<code class="kb-permission">{id}</code>

@@ -1,0 +1,36 @@
+{
+  "name": "scorpion-knowledgebase",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.34.6",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.3.5",
+    "@astrojs/mdx": "8.1.2",
+    "@astrojs/starlight": "0.42.7",
+    "astro": "7.4.4",
+    "rehype-mermaid": "3.0.0",
+    "starlight-links-validator": "0.27.0",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@playwright/test": "1.64.1",
+    "@types/node": "26.6.6",
+    "markdownlint-cli2": "0.24.0",
+    "playwright": "1.64.1",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.2",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "vitest": "5.0.5"
+  }
+}

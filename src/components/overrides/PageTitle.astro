@@ -1,0 +1,22 @@
+---
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+import ModuleBadge from '../ModuleBadge.astro';
+
+const data = Astro.locals.starlightRoute.entry.data as { modules?: string[] };
+const required = data.modules ?? [];
+---
+
+<Default>
+  <slot />
+</Default>
+{required.length > 0 && (
+  <p class="kb-requires-note">
+    Requires{' '}
+    {required.map((id) => (
+      <ModuleBadge id={id} />
+    ))}
+    <span class="kb-requires-note__hint">
+      These optional modules must be in your instance’s profile.
+    </span>
+  </p>
+)}
