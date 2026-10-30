@@ -25,3 +25,12 @@ Filed in `scorpion-monitoring/scorpion` on 2026-10-30. Fallbacks are in `impleme
 - **Typed hook for `Permission`.** Reads `src/data/generated/permissions.json` once `pnpm sync` writes it (K3).
 - **Sitemap and canonical URLs** use `KB_SITE`; revisit when a custom domain is added.
 - **Astro `markdown.processor` and Playwright in builds.** Mermaid rendering needs Chromium at build time, so every build host must run `playwright install chromium`. Consider a pre-rendered cache if build time grows.
+
+## Found in K1
+
+- **MDX source comments and markdownlint.** `{/* source: … */}` triggers MD037 (spaces inside emphasis markers). K1 writes `{/*source: … */}` without the space; the content check accepts both. Decide on one form and update `CLAUDE.md`.
+- **Reference titles with a flagged word.** The `Terminology` Vale style rejects "Scorpion", so the title of the de.NBI KPI paper (Feser et al. 2026) is shortened with "[…]" in the references. Consider a scope that ignores reference lists.
+- **ISO 9000:2026.** Pages cite the 2015 clause numbers (3.11.2 to 3.11.4), checked in a public copy. Check the 2026 numbering in a licensed copy and update.
+- **Weak or unverified sources.** `trend`, `volatility`, `cumulative-value` (glossary-level only), `service-provider` and `consortium` (no primary source), the service level statement on `target` (no source), and the OECD glossary 2nd edition (403 to bots). Replace when better sources are found.
+- **NIST SP 800-63-4** supersedes 800-63-3 (cited on `authentication`, `single-sign-on`). Decide whether to cite both.
+- **Scorpion observations.** README for `kpi.analytics` says a constant series scores exactly 0; the code returns "n/a" for a constant series of zeros. "Category" has three meanings; "KPI" and "indicator" are mixed on screens. Consider raising these in the Scorpion repository.
