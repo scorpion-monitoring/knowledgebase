@@ -56,7 +56,7 @@ Each decision gets an ADR in `docs/adr/` during K0.
 
 | # | Decision | Reason | Alternative considered |
 |---|---|---|---|
-| D1 | **Separate repository** `scorpion-monitoring/scorpion-kb` | Keeps Astro and documentation tooling out of the product monorepo; writers can contribute without the Scorpion toolchain; the KB can track releases rather than every commit | `apps/kb` inside the Scorpion monorepo. Simpler access to code, but couples doc fixes to the product's changeset and release process |
+| D1 | **Separate repository** `scorpion-monitoring/knowledgebase` | Keeps Astro and documentation tooling out of the product monorepo; writers can contribute without the Scorpion toolchain; the KB can track releases rather than every commit | `apps/kb` inside the Scorpion monorepo. Simpler access to code, but couples doc fixes to the product's changeset and release process |
 | D2 | **Audience pillars + module sections + terminology**, organised by Diátaxis page types | Readers arrive either by role ("I administer an instance") or by module ("our instance has onboarding"). Both entry points need a home | Module-first only: hides the core features that every instance has |
 | D3 | **Reference generated from a Scorpion docs export** (`pnpm sync`) | Permissions, settings and env variables change with each module; hand-copied tables drift | Hand-maintained tables: acceptable only until the export exists (see §7) |
 | D4 | **Journeys mirror Scorpion's Playwright journey specs**; screenshots come from those runs. Today Scorpion's specs are named by feature (`register.spec.ts`, `services.spec.ts`, …), so each journey records the spec it mirrors in `journeys.ts` until Scorpion adopts the `jNN-` names (R2) | "Build on e2e journeys" made literal: the documented steps are the tested steps | KB-owned Playwright scripts only: works, but duplicates Scorpion's journeys and can drift |
@@ -106,7 +106,7 @@ K6 can be split by module and written as soon as each Scorpion module is release
 
 **Goal:** an empty but fully wired KB in which every later milestone only adds pages.
 
-- Repository `scorpion-monitoring/scorpion-kb` with Node 24, pnpm 10, `.nvmrc`, `engines`, `.editorconfig`, `.gitignore`, `LICENSE` (same licence as Scorpion, ISC).
+- Repository `scorpion-monitoring/knowledgebase` with Node 24, pnpm 10, `.nvmrc`, `engines`, `.editorconfig`, `.gitignore`, `LICENSE` (same licence as Scorpion, ISC).
 - Astro + Starlight, with Pagefind search, Mermaid rendering, `starlight-links-validator`, light and dark theme, Scorpion logo and favicon.
 - Extended frontmatter schema in `src/content.config.ts` (see `CLAUDE.md`, "Frontmatter").
 - Data files: `modules.ts` and `profiles.ts` filled by hand from the architecture's profile matrix and `profiles/*.ts` in the Scorpion repository (marked as hand-maintained; profiles `core-only`, `registry`, `full`, plus `nfdi-onboarding` and `kpi-tracker` flagged as planned), `journeys.ts` with the catalogue from §6.2, `terms.ts` with the term list from §6.1, `navigation.ts`.
