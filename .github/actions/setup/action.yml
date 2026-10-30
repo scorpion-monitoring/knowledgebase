@@ -1,0 +1,39 @@
+name: Set up the KB toolchain
+description: Node 24, pnpm (from packageManager), dependencies, Playwright Chromium and, on request, the pinned Vale binary.
+inputs:
+  vale:
+    description: Install Vale as well ("true" or "false").
+    default: 'false'
+runs:
+  using: composite
+  steps:
+    # pnpm must be on the PATH before setup-node can cache its store.
+    - name: Enable Corepack
+      shell: bash
+      run: corepack enable
+    - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      with:
+        node-version-file: .nvmrc
+        cache: pnpm
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile
+    # rehype-mermaid renders diagrams with Chromium at build time; the smoke test uses it too.
+    - name: Install Playwright Chromium
+      shell: bash
+      run: pnpm exec playwright install --with-deps chromium
+    - name: Install Vale
+      if: inputs.vale == 'true'
+      shell: bash
+      env:
+        # Keep in step with the version recorded in CONTRIBUTING.md and .vale.ini.
+        VALE_VERSION: 3.25.1
+        VALE_SHA256: 4bf5c5176b682b1da0830f471584d3494f1c2e27ee3029e1ad6f6661d4962182
+      run: |
+        archive="vale_${VALE_VERSION}_Linux_64-bit.tar.gz"
+        curl -fsSL -o "$RUNNER_TEMP/$archive" "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/$archive"
+        echo "${VALE_SHA256}  $RUNNER_TEMP/$archive" | sha256sum -c -
+        mkdir -p "$HOME/.local/bin"
+        tar -xzf "$RUNNER_TEMP/$archive" -C "$HOME/.local/bin" vale
+        echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+        "$HOME/.local/bin/vale" --version
