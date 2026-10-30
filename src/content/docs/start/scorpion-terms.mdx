@@ -1,9 +1,85 @@
 ---
 title: "Scorpion term map"
-description: "How Scorpion names map to the terms in the terminology section."
-pageType: explanation
+description: "How the names Scorpion uses map to the tool-agnostic terms of the terminology section, checked against the documented release."
+pageType: reference
 audience: all
-draft: true
+modules: []
+since: v0.13.0
+verifiedAgainst: v0.13.0
+draft: false
 ---
 
-This page is filled in KB milestone K1.
+import Term from '@components/Term.astro';
+
+The terminology section defines terms without reference to any tool. Scorpion uses some of them under other names, and some names of its own. This page maps each Scorpion name to the term it stands for. It is the only page that does this.
+
+Every row was checked against Scorpion `v0.13.0`. A name that is not in that release is not listed.
+
+## Names and terms
+
+| Scorpion name | Where you meet it | Term | Notes |
+| --- | --- | --- | --- |
+| KPI set | **Settings** area, service pages | <Term id="indicator-framework" /> | A named list of indicators, each with a necessity level. A service has one KPI set and may add further indicators of its own. |
+| Category | Legacy name; `categories` in the v1 API | indicator framework | The old name of a KPI set. See "Three kinds of category" below. |
+| Indicator | **Settings** area; code and database | <Term id="indicator" /> | The definition: name, description, value type, unit, thematic category, means of measurement. |
+| KPI | Service pages, dashboard | <Term id="key-performance-indicator" /> | On these screens "KPI" names the indicators in the KPI set of a service. Screens in the **Settings** area say "indicator". |
+| Headline indicator | **Evaluation** section of a KPI set | <Term id="headline-indicator" /> | The one indicator of a set that summarises it. The **Evaluation** section also stores an aggregate (sum, average, minimum or maximum). At `v0.13.0` the evaluation is stored and editable, and nothing reads it. It is not a score. |
+| Necessity: Mandatory, Recommended, Optional | **Necessity** column of a KPI set | <Term id="necessity-level" /> | Maps to the properties `mandatoryFor`, `recommendedFor` and `appliedTo` of the Research Infrastructure Metrics Ontology (RIMO). Only Mandatory changes behaviour: the form does not save until every mandatory indicator has a value. |
+| Thematic category: Bibliographic, Usage, Technical, Satisfaction | **Thematic category** field of an indicator | <Term id="thematic-category" /> | One per indicator. The dashboard filter **Thematic category** uses it. |
+| RIMO category | **RIMO category** field of a KPI set | Service category of RIMO | The kind of tool or service a KPI set is for, such as web application or database portal. It is not a lifecycle stage and not a theme. The KB has no term page for it. |
+| Stage | Service page, catalogue column | <Term id="lifecycle-stage" /> | The released labels are Development, Demonstrator, Production and Terminated. An administrator can edit the list. |
+| Provider | Organisation type; API | <Term id="service-provider" /> | Service screens label it **Operated by**. |
+| Consortium | Organisation type; API | <Term id="consortium" /> | Service screens label it **Part of**. A consortium grants nothing on a service, and organisations have no hierarchy. |
+| Measurement | Code and API; the screens say "values" and **Data Submission** | <Term id="observation" /> | One value of one indicator of one service for one month. Reporting a month again replaces the value. This differs from the KB term <Term id="measurement" />, which is the process or the source and method. |
+| Means of measurement | Field of an indicator | measurement | The source and method sense. Maps to `measuredBy` in RIMO. The list is empty until an administrator fills it. |
+| Month | Reporting screens; `period` in the API | <Term id="reporting-period" /> | Reporting is monthly only. A date is stored as the last day of its month. This is not the KB <Term id="period-normalisation" />, which converts between period lengths. |
+| Value type: Whole number, Decimal number, Text, Duration (HH-MM-SS), Percentage | **Value type** field of an indicator | <Term id="value-type" /> | The type decides which aggregates are allowed. |
+| Unit | **Unit** field of an indicator | <Term id="unit-of-measurement" /> | A label from a list of units that follow the Units Ontology where it has a matching term. It is not checked against the value type. |
+| Way, source | **History** tab | <Term id="data-provenance" /> | The History tab shows when, who and by which way (form, file) a value was reported. Reads and the dashboard do not expose it. |
+| Sum, Average, Minimum, Maximum | Aggregate of an evaluation; dashboard | <Term id="aggregation" /> | Average uses the values that exist. A gap is not a zero. |
+| Change | **KPI cards** widget | <Term id="percentage-change" /> | `(newest - oldest) / abs(oldest) * 100`, from the first to the last month that has a value in the range. Shown as "n/a" with fewer than two values or an oldest value of 0. |
+| Running total | **Trends** widget | <Term id="cumulative-value" /> | A display option for a line. It is not a property of an indicator, and Scorpion does not store whether an indicator is cumulative. |
+| Sparkline | **KPI cards** widget | <Term id="sparkline" /> | The monthly values of the range. A gap breaks the line. |
+| Volatility, "MAPE" | **Volatility** widget | <Term id="mean-absolute-percentage-deviation" /> | See "Volatility and MAPE" below. |
+
+## Volatility and MAPE
+
+Scorpion keeps the legacy name MAPE in its code and decisions and shows the score to users as **Volatility**, with a band. ADR-0043 defines it as `mean(abs(v - mean)) / abs(mean)`, a fraction: 0.4 means 40 per cent. It is undefined with fewer than two values or a mean of 0.
+
+This is the mean absolute percentage deviation, a dispersion of a series around its own mean. It is not the <Term id="mean-absolute-percentage-error" />, which measures the error of a forecast. Scorpion calculates no forecast error. The KB calls the score by the first name and keeps the name MAPE only for the second.
+
+The band comes from two settings. A value below the first limit is low, from the first limit up to but not including the second is medium, and the second limit and above is high. The defaults are 0.4 and 0.8.
+
+## Three kinds of category
+
+The word "category" has three meanings in Scorpion. Always qualify it.
+
+- **Category** alone is the legacy name of a KPI set, and the v1 API still uses it. The KB term is indicator framework.
+- **Thematic category** is a theme of an indicator. The KB term is thematic category.
+- **RIMO category** is the kind of tool a KPI set is for. A service has no category field of its own.
+
+## Not in this release
+
+These KB terms have no counterpart in Scorpion `v0.13.0`: <Term id="target" />, <Term id="baseline" /> and <Term id="threshold" /> for indicators. Only validation bounds (**Smallest value** and **Largest value**) and the two volatility limits exist, and neither is a goal. Scorpion also has no cumulative-versus-per-period setting on indicators and no period other than a month.
+
+{/*source: scorpion@v0.13.0 docs/adr/0040-indicators-follow-rimo.md (KPI set, Category, indicator fields, necessity mapping, thematic category, RIMO category)*/}
+
+{/*source: scorpion@v0.13.0 modules/kpi-framework/README.md (the model, the effective KPI set, vocabularies, value types, units)*/}
+
+{/*source: scorpion@v0.13.0 modules/kpi-framework/service/evaluation.ts (headline indicator and aggregate)*/}
+
+{/*source: scorpion@v0.13.0 modules/kpi-ingestion/service/necessity.ts (only Mandatory has behaviour)*/}
+
+{/*source: scorpion@v0.13.0 modules/core-settings/service/builtin-vocabularies.ts (stage, necessity, thematic category)*/}
+
+{/*source: scorpion@v0.13.0 modules/registry-organisations/service/registries.ts (organisation types provider and consortium)*/}
+
+{/*source: scorpion@v0.13.0 modules/registry-services/ui/messages.ts (Operated by, Part of)*/}
+
+{/*source: scorpion@v0.13.0 docs/adr/0041-measurement-model.md (measurement is one value per service, indicator and month)*/}
+
+{/*source: scorpion@v0.13.0 modules/kpi-ingestion/README.md (History tab, provenance, period)*/}
+
+{/*source: scorpion@v0.13.0 docs/adr/0043-analytics-calculations-ranges-and-exports.md (volatility, MAPE formula, bands, change, running total)*/}
+
+{/*source: scorpion@v0.13.0 modules/kpi-analytics/README.md (widgets, sparkline, undefined values)*/}
