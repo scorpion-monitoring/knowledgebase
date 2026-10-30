@@ -1,0 +1,40 @@
+---
+title: "Sparkline"
+description: "A sparkline is a small, word-sized graphic that shows the shape of a series of values, usually placed next to a number or inside text."
+pageType: explanation
+audience: all
+modules: []
+term: "sparkline"
+short: "A sparkline is a small, simple, word-sized graphic of a series of values, shown without axes so that it can sit next to a number or inside text."
+aliases: ["dataword"]
+related: ["time-series", "trend", "volatility"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A sparkline is a small, simple, word-sized graphic of a series of values, shown without axes so that it can sit next to a number or inside text.
+
+## Explanation
+
+Edward Tufte introduced the term and describes a sparkline as "a small intense, simple, word-sized graphic with typographic resolution". It is usually a line over time. Bar and win/loss forms exist too.
+
+A sparkline has no axes, labels or gridlines. It shows shape, not exact values. Readers see the <Term id="trend" />, the <Term id="volatility" /> and the latest value at a glance. Common practice marks the last point or the minimum and maximum, and places the current value beside the graphic.
+
+Because it hides the scale, a sparkline does not replace a table or a full chart. Use it where many series must be compared quickly, for example one row per service. Scale all sparklines in a comparison in the same way, or say that each has its own scale.
+
+## Example
+
+A table lists research-infrastructure services in rows. Each row shows the number of monthly users as a figure, and next to it a sparkline of the last twelve months. A reader sees at once which services grow, which decline and which fluctuate.
+
+## Not to be confused with
+
+- A full chart: it has axes, labels and a legend and is read on its own, while a sparkline is read in the flow of a table or text.
+- <Term id="trend" />: the direction of the data, not the graphic that displays it.
+- <Term id="time-series" />: the data, not its small graphic.
+
+## References
+
+- [Edward Tufte: Sparkline theory and practice](https://www.edwardtufte.com/notebook/sparkline-theory-and-practice-edward-tufte/) - gives the definition quoted above and cites Tufte, Beautiful Evidence (2006), pages 46-63, as the source chapter.

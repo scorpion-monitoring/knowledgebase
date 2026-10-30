@@ -1,0 +1,42 @@
+---
+title: "Trend"
+description: "The general direction in which an indicator's values move over a series of reporting periods: rising, falling or stable."
+pageType: explanation
+audience: all
+modules: []
+term: "trend"
+short: "A trend is the general direction in which the values of an indicator move over a series of periods, such as rising, falling or stable."
+aliases: ["direction of change"]
+related: ["time-series", "percentage-change", "volatility", "sparkline"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A trend is the general direction in which the values of an indicator move over a series of periods, such as rising, falling or stable.
+
+## Explanation
+
+A trend describes a <Term id="time-series" /> as a whole, not one step in it. Statistical texts treat it as one component of a series beside seasonal variation and random noise, and call it the longer-term movement of the level.
+
+There is no single method to find a trend. You can compare the first and last value, fit a straight line, use a moving average, or apply a statistical test. The methods can disagree on short or noisy series. State the method and the window when you report a trend.
+
+A trend needs enough periods. Two points give a <Term id="percentage-change" />, not a trend. Strong fluctuation hides a trend, so read it together with <Term id="volatility" />.
+
+Seasonal patterns can look like a trend over a short window. Compare the same season across years, or remove the seasonal component first.
+
+## Example
+
+A service provider reports the number of monthly downloads for 24 months. Downloads peak every autumn, but each autumn peak is higher than the last. The trend is rising, although some months fall compared with the month before.
+
+## Not to be confused with
+
+- <Term id="percentage-change" />: a comparison of two values, not the direction over a series.
+- <Term id="volatility" />: how much values vary around their typical level, not which way the level moves.
+- <Term id="sparkline" />: a small graphic that can display a trend, not the trend itself.
+
+## References
+
+- [NIST/SEMATECH e-Handbook of Statistical Methods, section 6.4: Introduction to Time Series Analysis](https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc4.htm) - mentions "trend or seasonal variation" among the internal structure of time series data.

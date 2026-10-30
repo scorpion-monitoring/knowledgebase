@@ -1,0 +1,42 @@
+---
+title: "Mean absolute percentage error"
+description: "MAPE, the usual forecast-accuracy measure: the mean of the absolute errors of a forecast relative to the actual values."
+pageType: explanation
+audience: all
+modules: []
+term: "mean-absolute-percentage-error"
+short: "The mean absolute percentage error (MAPE) is the mean of the absolute differences between actual and forecast values, each divided by the absolute actual value."
+aliases: ["MAPE", "mean absolute percentage error (MAPE)"]
+related: ["mean-absolute-percentage-deviation", "time-series", "percentage-change", "target"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+The mean absolute percentage error (MAPE) is the mean of the absolute differences between actual and forecast values, each divided by the absolute actual value.
+
+## Explanation
+
+For actual values aₜ and forecasts fₜ, MAPE is (1/n) × Σ |aₜ − fₜ| / |aₜ|, often multiplied by 100. It measures how far a forecast lies from what happened, in percent of the actual value. Lower is better. The measure is scale-free, so you can compare forecasts for series of different sizes.
+
+MAPE has known weaknesses. It is undefined when an actual value is zero and unstable when actual values are close to zero. It also treats over-forecasts and under-forecasts unequally. The forecasting literature discusses these problems and recommends alternatives such as scaled errors.
+
+In common usage, the abbreviation "MAPE" means this forecast error. Some sources use similar words for the spread of a series around its own mean. The KB keeps the two apart. It uses mean absolute percentage error only for forecast accuracy, and the <Term id="mean-absolute-percentage-deviation" /> for dispersion within one series.
+
+MAPE needs two inputs: a forecast and the actuals it predicted. A single <Term id="time-series" /> alone does not give a MAPE.
+
+## Example
+
+A service provider forecasts 100, 120 and 80 support requests for three months. The actual numbers are 110, 100 and 80. The percentage errors are 10 / 110 ≈ 9.1 %, 20 / 100 = 20 % and 0 %. The MAPE is about 9.7 %.
+
+## Not to be confused with
+
+- <Term id="mean-absolute-percentage-deviation" />: the spread of a series around its own mean, with no forecast involved.
+- <Term id="percentage-change" />: the change between two observed values, not an error against a forecast.
+- <Term id="target" />: a value to reach, not a prediction to be scored.
+
+## References
+
+- [Hyndman, R. J. and Koehler, A. B. (2006), Another look at measures of forecast accuracy, International Journal of Forecasting 22(4), 679-688](https://doi.org/10.1016/j.ijforecast.2006.03.001) - surveys accuracy measures including those based on percentage errors and proposes scaled errors as an alternative.

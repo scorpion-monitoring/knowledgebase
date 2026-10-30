@@ -1,0 +1,42 @@
+---
+title: "Aggregation"
+description: "Combining several values into one with a function such as sum, mean, minimum or maximum, over reporting periods or across providers."
+pageType: explanation
+audience: all
+modules: []
+term: "aggregation"
+short: "Aggregation combines several values of an indicator into one value by applying a function such as sum, mean, minimum or maximum."
+aliases: ["aggregate", "roll-up"]
+related: ["time-series", "kpi-standardisation", "cumulative-value", "measurement"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+Aggregation combines several values of an indicator into one value by applying a function such as sum, mean, minimum or maximum.
+
+## Explanation
+
+Aggregation answers questions such as "how many users in total this year?" or "what is the average response time across the quarter?". The function you choose changes the meaning of the result. A sum fits counts of events. A mean fits rates and durations. A minimum or maximum shows the worst or best case.
+
+You aggregate along two directions. Over time, you combine the values of one provider across several reporting periods. Across providers, you combine the values of several providers for the same period. You can also combine both.
+
+Aggregated values are only meaningful if the combined values measure the same thing in the same way. If two providers count a "user" differently, their sum has no clear meaning. Aligning definitions is the task of <Term id="kpi-standardisation" />. Values in different units cannot be combined at all.
+
+Not every function suits every indicator. Summing percentages or averages of averages gives misleading results unless you weight them by the underlying counts. State the function whenever you publish an aggregated value.
+
+## Example
+
+Five service providers each report the number of registered users per month. The sum over the twelve months of one provider gives its yearly total. The sum over the five providers for one month gives the total for the infrastructure in that month. The mean over the five providers gives the typical provider size. This only works if all five providers count registered users by the same rule.
+
+## Not to be confused with
+
+- <Term id="cumulative-value" />: a running total since a start point, kept for every period. An aggregation over time yields one value for the whole span.
+- <Term id="time-series" />: the ordered values that aggregation takes as input, not the combined result.
+- <Term id="kpi-standardisation" />: the work that makes values comparable before you aggregate them.
+
+## References
+
+- [OECD Glossary of Statistical Terms](https://doi.org/10.1787/9789264055087-en) - general reference vocabulary for statistical terms; it covers aggregate data as distinct from unit-level data.
