@@ -35,6 +35,8 @@ interface Fixture {
   commands: string[][];
   expect: 'pass' | 'fail';
   message?: string;
+  /** Built output the passing fixture must contain (proves the layout overrides). */
+  html?: { file: string; contains: string[] };
 }
 
 function site(name: string): string {
@@ -78,6 +80,10 @@ describe('rule fixtures', () => {
       }
       if (spec.expect === 'pass') {
         expect(failed?.output, 'a control command failed').toBeUndefined();
+        if (spec.html) {
+          const html = readFileSync(join(dir, spec.html.file), 'utf8');
+          for (const text of spec.html.contains) expect(html).toContain(text);
+        }
       } else {
         expect(failed, 'the command should have failed').toBeDefined();
         expect(failed!.status).not.toBe(0);

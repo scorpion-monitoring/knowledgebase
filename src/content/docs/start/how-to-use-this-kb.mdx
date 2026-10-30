@@ -1,0 +1,43 @@
+---
+title: How to use this KB
+description: How the knowledge base is organised, how to read module badges, and what draft and since markers mean.
+pageType: explanation
+audience: all
+since: v0.1.0
+verifiedAgainst: v0.13.0
+---
+
+import ModuleBadge from '@components/ModuleBadge.astro';
+import Since from '@components/Since.astro';
+
+This knowledge base has three guides, one for each role you can have with a Scorpion instance, plus a terminology section and one section for each optional module.
+
+## Pick your role
+
+- **Users** follow journeys in the [user guide](/user/).
+- **Administrators** use the [administrator guide](/admin/).
+- **Developers** use the [developer guide](/developer/).
+- Everyone can look up words in the [terminology](/terminology/).
+
+```mermaid
+flowchart LR
+  Reader([You]) --> Role{Your role}
+  Role -->|use an instance| User[User guide]
+  Role -->|run an instance| Admin[Administrator guide]
+  Role -->|build on Scorpion| Dev[Developer guide]
+  User --> Modules[Module sections]
+  Admin --> Modules
+  Dev --> Modules
+```
+
+## Module badges
+
+A page that needs an optional module shows a badge such as <ModuleBadge id="registry.services" /> under its title. Your instance has the page's behaviour only if that module is in its profile. Core modules are in every profile and have no badge.
+
+## Since and verified markers
+
+The footer of a page shows the first Scorpion release with the behaviour (<Since version="v0.1.0" />) and the release the page was last checked against. This knowledge base documents the release named in `scorpion.json`.
+
+## Draft pages
+
+A page that describes behaviour not yet released is marked as a draft. Drafts are not published, so you only meet them in a local build.
