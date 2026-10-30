@@ -1,0 +1,42 @@
+---
+title: "DOI"
+description: "A digital object identifier (DOI) is a persistent identifier standardised in ISO 26324 that resolves to information about an object. Definition and use."
+pageType: explanation
+audience: all
+modules: []
+term: "DOI"
+short: "A digital object identifier (DOI) is a persistent identifier, standardised as ISO 26324, that identifies an object and resolves to current information about it."
+aliases: ["digital object identifier", "DOI name"]
+related: ["persistent-identifier", "publication", "citation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A digital object identifier (DOI) is a persistent identifier, standardised as ISO 26324, that identifies an object and resolves to current information about it.
+
+## Explanation
+
+A DOI has a prefix and a suffix, for example `10.1000/182`. Shown as a link through the doi.org proxy, it leads to the current location or record of the object. The DOI Foundation describes it as "a digital identifier of an object, any object — physical, digital, or abstract."
+
+DOIs are issued by registration agencies. Crossref and DataCite are two of them. Crossref mostly registers scholarly content such as articles and books. DataCite mostly registers research data and software. Both apply the same system.
+
+A DOI belongs to the family of <Term id="persistent-identifier" /> schemes. Most <Term id="publication" /> records use DOIs, which is why DOIs are the usual key for matching publications and counting citations.
+
+## Example
+
+A journal article has the DOI `10.1000/example.1`. A service provider records this DOI when a user reports the article. Any list of publications can then drop duplicates by comparing DOIs.
+
+## Not to be confused with
+
+- A <Term id="persistent-identifier" /> in general. A DOI is one scheme.
+- A URL. A DOI link is a URL, but the DOI itself is the stable name behind it.
+- ORCID, which identifies people, not objects.
+
+## References
+
+- DOI Foundation, [What is a DOI?](https://www.doi.org/the-identifier/what-is-a-doi/) - gives the quoted definition and states that the system is standardised as ISO 26324.
+- DOI Foundation, [DOI Handbook](https://www.doi.org/the-identifier/resources/handbook) - the main source of information about the DOI system.
+- DataCite, [DOI basics](https://support.datacite.org/docs/doi-basics) - shows how a DOI resolves through doi.org.

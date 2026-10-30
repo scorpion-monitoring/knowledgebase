@@ -1,0 +1,43 @@
+---
+title: "Citation count"
+description: "A citation count is the number of citations a publication has received. It depends on the data source and the field, so compare counts with care."
+pageType: explanation
+audience: all
+modules: []
+term: "citation count"
+short: "A citation count is the number of citations that a publication has received from other publications, as recorded in a given data source at a given date."
+aliases: ["number of citations", "times cited"]
+related: ["citation", "publication", "bibliometric-indicator", "doi"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A citation count is the number of citations that a publication has received from other publications, as recorded in a given data source at a given date.
+
+## Explanation
+
+The count is the number of <Term id="citation" /> links that point to one <Term id="publication" />. It changes over time and depends on the data source and the date.
+
+Sources differ. Crossref states that the number of citations each work receives is visible through its public APIs, and that "citations from Crossref may differ from those provided by other services". Each source covers different content, so the same work can have different counts.
+
+Counts also differ between fields. Raw counts from different fields should not be compared. Field-normalised measures exist for that purpose and are a kind of <Term id="bibliometric-indicator" />.
+
+For monitoring, state the source and the date next to every count.
+
+## Example
+
+An article published three years ago has 42 citations in one data source and 35 in another. Both counts are correct for their source. The monitoring report names the source and the date.
+
+## Not to be confused with
+
+- A <Term id="citation" />, which is a single link between two works.
+- A <Term id="bibliometric-indicator" />, which is a derived measure. A count is the simplest one.
+- Publication count, which is the number of works, not the number of citations they receive.
+
+## References
+
+- Crossref, [Cited-by](https://www.crossref.org/documentation/cited-by/) - states how citation counts are produced and that counts differ between services.
+- Waltman, L. (2016), [A review of the literature on citation impact indicators](https://doi.org/10.1016/j.joi.2016.02.007), Journal of Informetrics 10(2), 365-391 - covers data sources, field normalisation and counting choices for citation indicators.

@@ -1,0 +1,41 @@
+---
+title: "Lifecycle stage"
+description: "A lifecycle stage is a phase in the life of a service, such as planned, in development, in operation or retired. Stage names differ between organisations."
+pageType: explanation
+audience: all
+modules: []
+term: "lifecycle stage"
+short: "A lifecycle stage is one phase in the life of a service, for example planned, in development, in operation or retired."
+aliases: ["service lifecycle stage", "service phase"]
+related: ["service", "service-catalogue", "service-registry", "research-infrastructure"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A lifecycle stage is one phase in the life of a service, for example planned, in development, in operation or retired.
+
+## Explanation
+
+FitSM defines a service lifecycle as "The series of phases a service may move through in its lifetime." A lifecycle stage is one such phase. The same idea exists in systems engineering, where ISO/IEC/IEEE 15288 describes system life cycle stages from concept through development, production, utilisation and support to retirement.
+
+Stage names are not standardised across organisations. One infrastructure says "pilot", another says "in preparation". Some use five stages, some use three. Each organisation defines its own list and the meaning of each stage. The KB gives example names only and does not fix a list.
+
+Stages matter for reporting. A <Term id="service-catalogue" /> usually shows only live services. A <Term id="service-registry" /> can keep entries in all stages, so management can count services by stage.
+
+## Example
+
+An infrastructure uses four stages: planned, in development, in operation and retired. A new <Term id="service" /> starts as planned. It moves to in operation after its first release and its first user. The yearly report counts services per stage.
+
+## Not to be confused with
+
+- A maturity level, which rates how well-developed a practice is, not where a service is in its life.
+- An availability status, which says whether a live <Term id="service" /> works right now.
+- A project phase, which describes work on a project, not the life of a service.
+
+## References
+
+- FitSM-Basics, [Service portfolio management](https://training.pages.sigma2.no/tutorials/fitsm-basics/episodes/Service_Portfolio_Management.html) - gives the quoted definition of a service lifecycle and requires that service evolution through the lifecycle is managed.
+- ISO/IEC/IEEE 15288:2023, [System life cycle processes](https://www.iso.org/standard/81702.html) - the systems engineering standard that describes life cycle stages and does not prescribe one model.

@@ -1,0 +1,41 @@
+---
+title: "Role"
+description: "A named job function or responsibility to which permissions are attached and which is assigned to people, so that access follows from the role."
+pageType: explanation
+audience: all
+modules: []
+term: "role"
+short: "A role is a named job function or responsibility that carries a set of permissions and is assigned to people so that their access follows from the role."
+aliases: ["user role"]
+related: ["permission", "authorisation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A role is a named job function or responsibility that carries a set of permissions and is assigned to people so that their access follows from the role.
+
+## Explanation
+
+Roles reduce effort. An administrator does not give each person a long list of individual <Term id="permission" /> entries. The administrator defines a role once, attaches the permissions and assigns the role. Changing the role changes access for everyone who holds it.
+
+In role-based access control, a person may hold several roles, and a role may be held by many people. The NIST description states: "Each user is assigned one or more roles, and each role is assigned one or more privileges".
+
+The term has a second meaning outside access control, as a person's function in a project or process, for example "reviewer" or "applicant". Those meanings often match, but a process role has no permissions by itself. The KB uses "role" in the access-control sense unless it says otherwise. It follows the standard model in which a role is a set of permissions used in <Term id="authorisation" />.
+
+## Example
+
+A research infrastructure defines a role for provider contacts. It carries the permissions to edit the provider's own service descriptions and to enter usage statistics. A new contact receives the role and can do both at once. When the permission to export figures is added to the role, all contacts gain it.
+
+## Not to be confused with
+
+- <Term id="permission" />: one allowed action. A role is a set of them.
+- Group: a set of people. A role is a set of permissions, though systems often connect the two.
+- Job title: a label in an organisation chart, with no effect on access.
+
+## References
+
+- National Institute of Standards and Technology, "Role Based Access Control", [https://csrc.nist.gov/projects/role-based-access-control](https://csrc.nist.gov/projects/role-based-access-control) — gives the quoted description of roles and privileges and lists the standard and papers that define the model.
+- Internet Engineering Task Force, "Internet Security Glossary, Version 2", RFC 4949, [https://www.rfc-editor.org/rfc/rfc4949](https://www.rfc-editor.org/rfc/rfc4949) — defines a role as "A job function or employment position to which people or other system entities may be assigned in a system."

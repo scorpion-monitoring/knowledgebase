@@ -1,0 +1,43 @@
+---
+title: "SPDX licence identifier"
+description: "A short, standardised identifier from the SPDX licence list that names a software licence in a form both people and tools can read."
+pageType: explanation
+audience: all
+modules: []
+term: "SPDX licence identifier"
+short: "An SPDX licence identifier is a short, standardised string, such as MIT or Apache-2.0, that names a licence unambiguously for people and software tools."
+aliases: ["SPDX ID", "SPDX short identifier"]
+related: ["open-source-licence", "osi-approval"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+An SPDX licence identifier is a short, standardised string, such as MIT or Apache-2.0, that names a licence unambiguously for people and software tools.
+
+## Explanation
+
+Licence names are written in many ways: "MIT", "MIT licence", "Expat". Tools cannot reliably match such free text. The Software Package Data Exchange (SPDX) project maintains a list of licences in which each entry has a fixed short identifier, a full name, the text and a permanent address.
+
+An identifier can be written into a source file or a metadata record. SPDX also defines expressions that combine identifiers, for example to state that a work may be used under either of two licences.
+
+Identifiers exist for licences that are not open source as well. An identifier therefore says which licence applies. It does not say whether the licence is an <Term id="open-source-licence" />. The SPDX list marks that separately, by showing whether the <Term id="osi-approval" /> status applies.
+
+The KB follows the SPDX usage. It uses the identifier exactly as the list spells it, including capitalisation and hyphens.
+
+## Example
+
+A service provider describes its web tool in a registry entry. The entry holds the identifier Apache-2.0 in a licence field. A report script counts, across all entries, how many tools use each identifier. Because every provider uses the same list, entries written as "Apache 2" or "Apache licence" are no longer counted as separate values.
+
+## Not to be confused with
+
+- Licence text: the full legal wording. The identifier only refers to it.
+- <Term id="open-source-licence" />: a kind of licence. The identifier is a name for any listed licence.
+- Version numbers of software: an identifier such as GPL-3.0-only refers to the licence version, not to the version of the software.
+
+## References
+
+- SPDX, "SPDX License List", [https://spdx.org/licenses/](https://spdx.org/licenses/) — describes the list, in which each entry has "a standardized short identifier, the full name, the license text, and a canonical permanent URL", and shows an OSI approval column.
+- SPDX, "Handling License Info", [https://spdx.dev/learn/handling-license-info/](https://spdx.dev/learn/handling-license-info/) — explains the `SPDX-License-Identifier:` tag, which is "Human-readable and machine readable."

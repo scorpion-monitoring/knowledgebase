@@ -1,0 +1,42 @@
+---
+title: "OSI approval"
+description: "The status given by the Open Source Initiative to a licence that has passed its review against the Open Source Definition."
+pageType: explanation
+audience: all
+modules: []
+term: "OSI approval"
+short: "OSI approval is the status the Open Source Initiative grants to a licence after its review process finds that the licence complies with the Open Source Definition."
+aliases: ["OSI-approved", "OSI approved licence"]
+related: ["open-source-licence", "spdx-licence-identifier"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+OSI approval is the status the Open Source Initiative grants to a licence after its review process finds that the licence complies with the Open Source Definition.
+
+## Explanation
+
+The Open Source Initiative (OSI) is a non-profit organisation that maintains the Open Source Definition. A licence submitted to its review process is checked against the criteria of that definition. If it passes, OSI lists it as approved.
+
+Approval is a property of the licence, not of a piece of software. Software is open source in this sense when it is released under an approved licence.
+
+Other bodies keep their own lists, and a licence may be accepted by one and not by another. The KB uses OSI approval as its test for an <Term id="open-source-licence" />, because the status is public and can be checked. A licence list that records the status, such as the one behind the <Term id="spdx-licence-identifier" />, lets tools check it automatically.
+
+## Example
+
+A funder asks a research infrastructure to report how many of its software services are open source. The infrastructure counts the services whose licence identifier appears in the list of OSI-approved licences. Services with a custom licence, or one that has not been reviewed, are reported as "not OSI-approved" and are checked by hand.
+
+## Not to be confused with
+
+- <Term id="open-source-licence" />: the general concept. A licence can follow the principles and still lack OSI approval.
+- Certification of the software or of its security: approval covers only the licence.
+- Free software approval by other organisations: a separate list, which overlaps strongly with OSI's.
+
+## References
+
+- Open Source Initiative, "Licenses", [https://opensource.org/licenses](https://opensource.org/licenses) — states that "a license must go through the Open Source Initiative's license review process" to be approved.
+- Open Source Initiative, "The Open Source Definition", [https://opensource.org/osd](https://opensource.org/osd) — the criteria against which the review checks a licence.
+- SPDX, "SPDX License List", [https://spdx.org/licenses/](https://spdx.org/licenses/) — shows an "OSI Approved?" column for each listed licence.

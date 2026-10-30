@@ -1,0 +1,44 @@
+---
+title: "Authorisation"
+description: "The decision whether an authenticated person or system may perform an action on a resource, based on rules, roles or attributes."
+pageType: explanation
+audience: all
+modules: []
+term: "authorisation"
+short: "Authorisation is the decision, or the approval behind it, that an authenticated person or system may perform a given action on a given resource."
+aliases: ["access control"]
+related: ["authentication", "role", "permission"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+Authorisation is the decision, or the approval behind it, that an authenticated person or system may perform a given action on a given resource.
+
+## Explanation
+
+The word has two common uses. It can mean the approval that has been granted to someone, as in "she has authorisation to edit this record". It can also mean the act of checking that approval when a request arrives. The KB uses it for both, and says "granting" or "checking" where the difference matters.
+
+Authorisation follows <Term id="authentication" />. The system must know who is asking before it can decide what they may do.
+
+Systems express the rules in different ways. In role-based access control, <Term id="permission" /> entries are given to a <Term id="role" /> and people receive roles. In attribute-based access control, a policy evaluates attributes of the person, the resource and the situation. Both are in common use. The KB describes the concept and does not prefer one model.
+
+Some standards use "authorisation" for the approval and "permission" for the same thing inside a role-based model. The KB keeps "permission" for the single allowed action and "authorisation" for the wider decision.
+
+## Example
+
+A research infrastructure lets every signed-in person read the list of services. Only the contact person of a provider may change that provider's usage figures. When someone else tries, the system rejects the request even though the person is correctly authenticated.
+
+## Not to be confused with
+
+- <Term id="authentication" />: verifying who someone is.
+- <Term id="permission" />: one allowed action. Authorisation is the broader decision that uses permissions.
+- <Term id="role" />: a named group of permissions, one way to organise authorisation.
+
+## References
+
+- Internet Engineering Task Force, "Internet Security Glossary, Version 2", RFC 4949, [https://www.rfc-editor.org/rfc/rfc4949](https://www.rfc-editor.org/rfc/rfc4949) — defines the approval sense as "An approval that is granted to a system entity to access a system resource."
+- National Institute of Standards and Technology, "Guide to Attribute Based Access Control (ABAC) Definition and Considerations", SP 800-162, [https://doi.org/10.6028/NIST.SP.800-162](https://doi.org/10.6028/NIST.SP.800-162) — describes attribute-based access control as one way to determine authorisation.
+- National Institute of Standards and Technology, "Role Based Access Control", [https://csrc.nist.gov/projects/role-based-access-control](https://csrc.nist.gov/projects/role-based-access-control) — describes role-based access control, the other common model.

@@ -1,0 +1,41 @@
+---
+title: "Publication"
+description: "A publication is a scholarly output, such as an article, book chapter or preprint, that is made public and can be cited. Definition and common types."
+pageType: explanation
+audience: all
+modules: []
+term: "publication"
+short: "A publication is a scholarly work, such as an article, book chapter, report or preprint, that is made publicly available and can be cited."
+aliases: ["scientific publication", "scholarly publication"]
+related: ["doi", "citation", "citation-count", "bibliometric-indicator"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A publication is a scholarly work, such as an article, book chapter, report or preprint, that is made publicly available and can be cited.
+
+## Explanation
+
+In research infrastructure monitoring, a publication is usually a work that reports results obtained with the help of a service. It is identified by a <Term id="doi" /> or another persistent identifier.
+
+Communities draw the line differently. Some count only peer-reviewed journal articles and books. Others also count preprints, reports, datasets and software. Registration services accept all of these as record types. The KB does not fix one list: an infrastructure states which types it counts.
+
+A publication is the thing that is cited. The counts and measures built from it are covered under <Term id="citation" />, <Term id="citation-count" /> and <Term id="bibliometric-indicator" />.
+
+## Example
+
+A research group analyses data with a service of the infrastructure and publishes a journal article. The article names the service in its acknowledgements. The provider records the article's DOI against the service, so the infrastructure can report publications per service.
+
+## Not to be confused with
+
+- A <Term id="citation" />, which is a reference from one work to another.
+- A dataset or software release. Some communities treat these as publications, others as separate outputs.
+- A preprint, which is not peer-reviewed. It may be counted separately from the version of record.
+
+## References
+
+- Crossref, [Markup guides for record types](https://www.crossref.org/education/content-registration/recommendations-by-content-type/) - lists the scholarly record types that can be registered, such as journal articles, books and preprints.
+- Waltman, L. (2016), [A review of the literature on citation impact indicators](https://doi.org/10.1016/j.joi.2016.02.007), Journal of Informetrics 10(2), 365-391 - discusses which publications are included in citation analyses and shows that the choice affects results.

@@ -1,0 +1,48 @@
+---
+title: "Maturity model"
+description: "A maturity model describes how a capability develops through ordered levels and lets an organisation rate itself against criteria grouped into dimensions."
+pageType: explanation
+audience: all
+modules: []
+term: "maturity-model"
+short: "A maturity model is a structured description of how a capability develops through ordered levels, with criteria against which an organisation rates its current position."
+aliases: ["capability maturity model"]
+related: ["dimension", "criterion", "maturity-level", "self-assessment"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A maturity model is a structured description of how a capability develops through ordered levels, with criteria against which an organisation rates its current position.
+
+## Explanation
+
+A maturity model has three structural parts. <Term id="dimension" />s group related topics. A <Term id="criterion" /> is one assessable item inside a dimension. Each criterion is rated against a scale of <Term id="maturity-level" />s.
+
+The result is a profile, not a single verdict. An organisation can be advanced in one dimension and at an early level in another. Many models also let the organisation compute an overall level, but that summary hides the profile.
+
+Maturity models are descriptive and prescriptive at once. They describe typical stages and they imply a direction: higher levels are better. Critics point out that not every organisation needs the highest level in every dimension. The KB treats the levels as a shared scale for planning improvement, not as a ranking.
+
+Authors use the term in two ways. In the narrow sense, from process-capability standards, the levels are cumulative and a process must satisfy the lower levels before it reaches the next. In the wider sense, used in research data management, the model is a set of indicators, each with its own levels and priorities, and the levels are not necessarily cumulative across indicators. The KB uses the wider sense and says so where it matters.
+
+The definition on this page is a working definition composed for the KB from the sources below. No single standard defines the term in these words.
+
+## Example
+
+A research infrastructure wants to know how well its service providers manage service documentation. The model has the dimensions "documentation", "support" and "continuity". Each dimension has several criteria, such as "a user guide exists" or "response times are published". Each criterion is rated on four levels, from "not in place" to "reviewed and improved regularly". Each service provider rates itself. The infrastructure reads the results as a profile per provider and picks the dimensions where support is most needed.
+
+## Not to be confused with
+
+- A <Term id="indicator-framework" />, which organises indicators that are measured with data. A maturity model organises judgements about capability.
+- A <Term id="lifecycle-stage" />, which says where a service is in its life, not how well it is run.
+- Technology readiness levels, a nine-point scale for the development state of a technology, defined in ISO 16290 for space systems.
+- A <Term id="target" />, which is a value to reach for one indicator.
+
+## References
+
+- [ISO/IEC 33020:2019, Process measurement framework for assessment of process capability](https://committee.iso.org/standard/78526.html) - defines six process capability levels, from incomplete to innovating, that are the narrow sense of the term.
+- [FAIR Data Maturity Model: specification and guidelines (RDA, 2020)](https://www.rd-alliance.org/groups/fair-data-maturity-model-wg/outputs/fair-data-maturity-model-specification-and-guidelines/) - an endorsed model in research data management, where each indicator has levels, priorities and evaluation methods.
+- [Bahim et al., "The FAIR Data Maturity Model: An Approach to Harmonise FAIR Assessments", Data Science Journal 19(1), 41 (2020)](https://doi.org/10.5334/dsj-2020-041) - describes the indicators, their priorities and the two scoring approaches, a five-level scale and a pass-or-fail score.
+- [ISO 16290:2013, Space systems - Definition of the Technology Readiness Levels (TRLs) and their criteria of assessment](https://standards.iteh.ai/catalog/standards/iso/9abd48b9-a44b-425b-b57d-49f33f6702ee/iso-16290-2013) - defines the nine-level technology readiness scale, which is a different concept.

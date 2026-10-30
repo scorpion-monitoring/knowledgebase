@@ -1,0 +1,43 @@
+---
+title: "Maturity level"
+description: "A maturity level is a step on the ordered scale of a maturity model. It describes the degree to which a criterion or capability is in place."
+pageType: explanation
+audience: all
+modules: []
+term: "maturity-level"
+short: "A maturity level is one step on the ordered scale of a maturity model, describing the degree to which a capability is established."
+aliases: ["capability level", "level"]
+related: ["maturity-model", "dimension", "criterion", "self-assessment"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A maturity level is one step on the ordered scale of a maturity model, describing the degree to which a capability is established.
+
+## Explanation
+
+A <Term id="maturity-model" /> uses an ordered scale, usually of three to six levels. Each level has a short name and a description of what the organisation does at that level. Levels are numbered, so that a higher number means a more developed capability.
+
+Models differ in what the level applies to. In process-capability standards, the level applies to a process and is cumulative. In research data management models, the level can apply to each <Term id="criterion" />. Some models also offer a binary score, pass or fail, in place of levels.
+
+A level is a statement about practice at a point in time. It is not a <Term id="target" /> and it is not a quality grade. The KB follows the usage of the model it describes and does not assume that every organisation should reach the highest level.
+
+## Example
+
+A four-level scale for the criterion "usage statistics are collected": level 0, not in place; level 1, collected occasionally; level 2, collected for each <Term id="reporting-period" />; level 3, collected for each period and cross-checked. A service provider that collects statistics each period but does not cross-check them rates itself at level 2.
+
+## Not to be confused with
+
+- A technology readiness level, which rates the development state of a technology on nine steps and is defined in ISO 16290 for space systems.
+- A <Term id="necessity-level" />, which says how strongly something is required.
+- A <Term id="lifecycle-stage" />, which names where a service is in its life.
+- A <Term id="threshold" /> on an indicator value.
+
+## References
+
+- [ISO/IEC 33020:2019, Process measurement framework for assessment of process capability](https://committee.iso.org/standard/78526.html) - defines six cumulative capability levels, from level 0 incomplete to level 5 innovating.
+- [Bahim et al., "The FAIR Data Maturity Model: An Approach to Harmonise FAIR Assessments", Data Science Journal 19(1), 41 (2020)](https://doi.org/10.5334/dsj-2020-041) - describes a five-level scale per indicator and a binary alternative.
+- [ESA, Technology Readiness Level (TRL)](https://sci.esa.int/web/sci-ft/-/50124-technology-readiness-level) - lists the nine technology readiness levels, which are a separate concept.
