@@ -46,18 +46,21 @@ ${bannedWords.map((w) => `  - '\\b${w}\\b'`).join('\n')}
     .sort()
     .join('\n')}\n`;
 
-  const names = [
-    ...modules.map((m) => m.id.replaceAll('.', '\\.')),
-    ...terminologyRoleNames,
-    'Scorpion',
-  ];
+  // Module ids that are ordinary English words (maturity, backup, onboarding, ...) would flag
+  // legitimate prose such as "maturity model" under terminology/. Match them only in code form.
+  const plainWord = (id: string) => /^[a-z]+$/.test(id);
+  const moduleTokens = modules.map((m) =>
+    plainWord(m.id) ? `\`${m.id}\`` : `\\b${m.id.replaceAll('.', '\\.')}\\b`,
+  );
+  const names = [...terminologyRoleNames, 'Scorpion'].map((n) => `\\b${n}\\b`);
   const terminology = `${HEADER}extends: existence
 message: "'%s' is tool-specific. Terminology pages are tool-agnostic: move the mapping to start/scorpion-terms."
 level: error
 scope: raw
 ignorecase: false
+# Module ids that are plain English words are matched only in code form (backticks), see gen-vale.ts.
 tokens:
-${names.map((n) => `  - '\\b${n}\\b'`).join('\n')}
+${[...moduleTokens, ...names].map((n) => `  - '${n}'`).join('\n')}
 `;
 
   return {

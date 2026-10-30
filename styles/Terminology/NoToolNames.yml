@@ -4,6 +4,7 @@ message: "'%s' is tool-specific. Terminology pages are tool-agnostic: move the m
 level: error
 scope: raw
 ignorecase: false
+# Module ids that are plain English words are matched only in code form (backticks), see gen-vale.ts.
 tokens:
   - '\bcore\.authz\b'
   - '\bcore\.settings\b'
@@ -19,12 +20,12 @@ tokens:
   - '\bkpi\.ingestion\b'
   - '\bkpi\.analytics\b'
   - '\bkpi\.impact\b'
-  - '\bmaturity\b'
-  - '\bonboarding\b'
-  - '\bbibliometrics\b'
+  - '`maturity`'
+  - '`onboarding`'
+  - '`bibliometrics`'
   - '\bnetwork-graph\b'
-  - '\bannouncements\b'
-  - '\bbackup\b'
+  - '`announcements`'
+  - '`backup`'
   - '\bAdmin\b'
   - '\bReviewer\b'
   - '\bScorpion\b'
