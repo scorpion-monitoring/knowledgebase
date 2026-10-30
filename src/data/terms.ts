@@ -39,10 +39,17 @@ export const terms: readonly Term[] = [
   t('Monitoring and evaluation', 'reporting', 'reporting'),
   t('Monitoring and evaluation', 'reporting-period', 'reporting period'),
   t('Monitoring and evaluation', 'results-chain', 'results chain'),
+  t('Monitoring and evaluation', 'federated-monitoring', 'federated monitoring'),
   t('Indicators', 'indicator', 'indicator'),
   t('Indicators', 'key-performance-indicator', 'key performance indicator (KPI)'),
   t('Indicators', 'metric', 'metric'),
   t('Indicators', 'measure', 'measure'),
+  t('Indicators', 'indicator-classes', 'operational, usage and scientific impact indicators'),
+  t('Indicators', 'kpi-harmonisation', 'KPI harmonisation', ['harmonization', 'Harmonization']),
+  t('Indicators', 'kpi-standardisation', 'KPI standardisation', [
+    'standardization',
+    'Standardization',
+  ]),
   t('Indicators', 'headline-indicator', 'headline indicator'),
   t('Indicators', 'leading-and-lagging-indicators', 'leading and lagging indicators'),
   t(
