@@ -1,0 +1,47 @@
+---
+title: "Necessity level"
+description: "A necessity level states how strongly an indicator is expected to be reported: mandatory, recommended or optional. Learn how it is used in a framework."
+pageType: explanation
+audience: all
+modules: []
+term: "necessity-level"
+short: "A necessity level states how strongly an indicator is expected to be reported within an indicator framework: mandatory, recommended or optional."
+aliases: ["necessity", "requirement level"]
+related: ["indicator-framework", "indicator", "reporting", "thematic-category"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A necessity level states how strongly an indicator is expected to be reported within an indicator framework: mandatory, recommended or optional.
+
+## Explanation
+
+Not every <Term id="indicator" /> in an <Term id="indicator-framework" /> suits every contributor. Some are needed to compare contributors. Others add detail. The necessity level records this difference for <Term id="reporting" />.
+
+The three levels are:
+
+- **Mandatory:** every contributor to whom the framework applies reports the indicator.
+- **Recommended:** contributors report it when they can.
+- **Optional:** contributors report it when it helps them.
+
+The level belongs to the pairing of an indicator and a framework, not to the indicator alone. The same indicator can be mandatory in one framework and optional in another.
+
+The three words echo the requirement levels of RFC 2119 (MUST, SHOULD, MAY), which standards use for the same purpose. Frameworks differ in the labels they use and the number of levels. The KB uses the three levels above as its working vocabulary.
+
+## Example
+
+A framework for data services makes "user requests" mandatory, because the infrastructure needs it from every service. It marks "user satisfaction" as recommended. It marks "training events" as optional, because only some services run training.
+
+## Not to be confused with
+
+- Importance: a necessity level says what is expected, not how much the indicator matters.
+- <Term id="thematic-category" />: a grouping by subject. A necessity level is an expectation.
+- Data quality: a mandatory indicator can be reported with poor quality, and an optional one with high quality.
+
+## References
+
+- Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", RFC 2119 (1997). [https://www.rfc-editor.org/rfc/rfc2119](https://www.rfc-editor.org/rfc/rfc2119) - the standard source for graded requirement words (MUST, SHOULD, MAY) that the three necessity levels resemble.
+- [Research Infrastructure Metrics Ontology (RIMO), version 0.2.0](https://github.com/JKoblitz/BH25-metrics), Koblitz and the BioHackathon Europe 2025 METRICS Team, 2025 – expresses necessity through the properties `mandatoryFor`, `recommendedFor` and the more general `appliedTo`, each linking an indicator to a service category.

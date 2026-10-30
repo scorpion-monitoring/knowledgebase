@@ -1,0 +1,43 @@
+---
+title: "Service"
+description: "A service is a technical-organisational solution of technology, processes and the people who support it."
+pageType: explanation
+audience: all
+modules: []
+term: "service"
+short: "A service is a technical-organisational solution that combines technical components such as storage, computing and software with the processes and personnel needed to provide it."
+aliases: ["research service","service offering"]
+related: ["service-provider","service-catalogue","service-registry","lifecycle-stage","research-infrastructure"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A service is a technical-organisational solution that combines technical components such as storage, computing and software with the processes and personnel needed to provide it.
+
+## Explanation
+
+In a research infrastructure a service is rarely only software. It combines technical components with the people who operate and support them. This is why monitoring a service covers more than uptime: it also covers use, user support and the effect on research.
+
+In early 2022 the consortia of the German National Research Data Infrastructure (NFDI) adopted a definition in their joint statement on basic services. The NFDI Task Force on Evaluation and Reporting then proposed it as a common basis for reporting on services across the NFDI. It reads: "A service in NFDI is understood as a technical-organisational solution, which typically includes storage and computing services, software, processes, and workflows, as well as the necessary personnel support for different service desks."
+
+The KB uses this definition for all research infrastructures. The NFDI builds directly on the service categories of the German Network for Bioinformatics Infrastructure (de.NBI). It renames these categories "service components", because one item can be part of a larger NFDI service offering, and it adds categories for data curation, training and storage. Other communities use "service" more narrowly, for example for a software application or for an interface that other software can call. The KB does not follow those narrower uses.
+
+A service is more than one of its components. A database, its web interface and the support desk that answers questions about it can be one service or three, depending on how the provider offers and reports them.
+
+## Example
+
+A bioinformatics centre offers a sequence-analysis service. It consists of a web application, a computing cluster behind it, a workflow that runs the analysis, and a help desk with trained staff. The centre registers this as one service and reports usage and availability for it as a whole.
+
+## Not to be confused with
+
+- A service in the sense of IT service management, where a service is a means of delivering value to a customer. The NFDI definition is compatible with this but names the typical components.
+- A web service or application programming interface (API). These are technical components that can be part of a service.
+- <Term id="service-provider" />: the organisation that operates the service.
+
+## References
+
+- [NFDI Task Force Evaluation and Reporting: White Paper, Interim Report Reference, version 2 (2023)](https://doi.org/10.5281/zenodo.10101412) – source of the quoted definition (section "Services") and of the renaming of the de.NBI service categories as "service components".
+- [Research Infrastructure Metrics Ontology (RIMO), version 0.2.0](https://github.com/JKoblitz/BH25-metrics), Koblitz and the BioHackathon Europe 2025 METRICS Team, 2025 – defines a service category class aligned to the bio.tools tool types, for example web application or database portal.

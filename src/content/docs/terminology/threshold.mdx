@@ -1,0 +1,42 @@
+---
+title: "Threshold"
+description: "A limit value of an indicator that, when crossed, signals a problem or triggers a decision or action."
+pageType: explanation
+audience: all
+modules: []
+term: "threshold"
+short: "A threshold is a limit value of an indicator that, when crossed, signals a problem or triggers a defined decision or action."
+aliases: ["limit value", "alert level"]
+related: ["target", "baseline", "indicator", "observation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A threshold is a limit value of an indicator that, when crossed, signals a problem or triggers a defined decision or action.
+
+## Explanation
+
+A threshold divides the range of an <Term id="indicator" /> into acceptable and not acceptable. Crossing it can raise an alert, start a review or change a status. A threshold can be an upper limit, such as a maximum response time, or a lower limit, such as a minimum availability.
+
+Thresholds and targets differ in purpose. A <Term id="target" /> is what you want to achieve. A threshold is the point at which you must act. A service can meet its minimum threshold and still miss its target. Thresholds are often less strict than targets. Some indicators have several thresholds, for example one for a warning and one for a critical state.
+
+Usage varies between communities. In monitoring and operations practice, a threshold is a value at which an alert or action starts. In results-based management, the term is less common, and "target" and "benchmark" cover most uses. The KB follows the monitoring usage.
+
+A threshold compares with a single <Term id="observation" />. It does not describe the change since the <Term id="baseline" />.
+
+## Example
+
+A research infrastructure sets the threshold for the indicator "Service availability" at 95 per cent per month. The target is 99 per cent. A provider with 97 per cent misses the target but crosses no threshold. A provider with 93 per cent crosses the threshold, and the infrastructure asks for a recovery plan.
+
+## Not to be confused with
+
+- <Term id="target" />: the aim, not the point that triggers action.
+- <Term id="baseline" />: the starting value, not a limit.
+- <Term id="observation" />: a recorded value that you compare with the threshold.
+
+## References
+
+- [NIST Computer Security Resource Center glossary, "thresholds"](https://csrc.nist.gov/glossary/term/thresholds) - defines thresholds as "Values used to establish concrete decision points and operational control limits" "to trigger management action and response escalation".

@@ -1,0 +1,48 @@
+---
+title: "Key performance indicator"
+description: "A key performance indicator is an indicator, quantified by a metric, that focuses on an aspect of performance critical to an organisation."
+pageType: explanation
+audience: all
+modules: []
+term: "key-performance-indicator"
+short: "A key performance indicator (KPI) is an indicator, quantified by a metric, that focuses on an aspect of performance critical to an organisation's current and future success."
+aliases: ["KPI","KPIs"]
+related: ["indicator","metric","target","value-type","unit-of-measurement","indicator-framework","kpi-harmonisation","kpi-standardisation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A key performance indicator (KPI) is an indicator, quantified by a metric, that focuses on an aspect of performance critical to an organisation's current and future success.
+
+## Explanation
+
+Not all indicators are equally relevant to managing a service. The indicators that an organisation deems most important are its KPIs. The general KPI literature, citing Parmenter, describes KPIs as "a set of measures focusing on those aspects of [organisational] performance that are the most critical for the current and future success of the [organisation]" (spelling adjusted).
+
+Applied to research infrastructures, KPIs monitor the development, performance and user acceptance of services and establish control mechanisms within joint projects.
+
+The difference between an <Term id="indicator" /> and a KPI is one of selection and purpose, not of kind. In the German Network for Bioinformatics Infrastructure (de.NBI), for example, the KPIs of each service category are a subset of possible indicators that the network agreed on after extensive discussion. Service providers are expected to report them.
+
+A KPI needs a specification beyond its name. The literature commonly lists these features: an identifier, a name and a description; a calculation rule; a <Term id="value-type" /> and a <Term id="unit-of-measurement" />; a frequency of calculation; a <Term id="target" /> value or range; and the data source from which the KPI is computed. The target is the counterpart of the service level in a service level agreement. It is the goal against which quality control compares the measured value.
+
+The literature also reports that there is no consensus on the elements of a KPI definition. The KB follows the specification above and says so where a page depends on it.
+
+## Example
+
+A federation of service providers agrees that every web application reports "unique visitors per month" and "service availability per month". These two indicators are the KPIs of the web-application service category. A provider may track further indicators for its own use, but those are not KPIs of the federation.
+
+## Not to be confused with
+
+- <Term id="indicator" />: any evidence for a component of an impact pathway. A KPI is a selected indicator.
+- <Term id="metric" />: how an indicator is quantified.
+- <Term id="target" />: the value a KPI is meant to reach. A KPI can exist without one.
+- <Term id="headline-indicator" />: one indicator chosen to summarise a set.
+
+## References
+
+- [Domínguez et al.: A taxonomy for key performance indicators management. Computer Standards & Interfaces 64 (2019) 24-40](https://doi.org/10.1016/j.csi.2018.12.001) – quotes Parmenter's definition (section 1) and lists KPI specification features (section 3.2). An accepted manuscript is at [Zaguán](https://zaguan.unizar.es/record/86434).
+- [Parmenter: Key Performance Indicators: Developing, Implementing, and Using Winning KPIs, 2nd edition. Wiley, 2010](https://openlibrary.org/search?q=parmenter+key+performance+indicators) – original source of the definition. The wording above was checked in Domínguez et al., not in the book.
+- [Feser et al.: Evolving bioinformatics services – the journey of KPI metrics with […]. Journal of Integrative Bioinformatics 22(4), 20250048, 2026](https://doi.org/10.1515/jib-2025-0048) – describes KPIs in research infrastructures and the de.NBI practice of agreeing a subset of indicators.
+- [Turewicz et al.: de.NBI service category-specific KPI selection and criteria, 2022](https://doi.org/10.5281/zenodo.6597826) – KPIs defined per service category as mandatory or optional.

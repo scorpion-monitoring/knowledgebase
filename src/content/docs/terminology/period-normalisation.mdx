@@ -1,0 +1,43 @@
+---
+title: "Period normalisation"
+description: "Converting values reported for reporting periods of different lengths to one common period, so that they can be compared."
+pageType: explanation
+audience: all
+modules: []
+term: "period-normalisation"
+short: "Period normalisation converts values reported for reporting periods of different lengths to a common period, such as a month or a year, so that they can be compared."
+aliases: ["period normalization", "time normalisation"]
+related: ["time-series", "aggregation", "unit-of-measurement", "observation", "kpi-standardisation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+Period normalisation converts values reported for reporting periods of different lengths to a common period, such as a month or a year, so that they can be compared.
+
+## Explanation
+
+Providers do not always report for the same period. One provider reports per month, another per quarter, a third per year. A yearly count and a monthly count cannot be compared directly. Period normalisation converts them to one period.
+
+How you convert depends on the indicator. For counts of events, such as requests, you divide a yearly value by twelve to get an average monthly value. You can also add monthly values to get a yearly value. For states, such as the number of registered users at the end of a period, you do not divide. You take the value at the end of the period. For rates and shares, the period does not apply. The converted value is an estimate, because it assumes an even spread over the period.
+
+No standard defines this term. Statistical practice uses related ideas, such as the annualisation of rates and the temporal disaggregation of time series, but these have no common name. This page gives the KB's working definition. The first step is to state which rule applies to each indicator.
+
+Period normalisation changes the period of a value. It does not change its <Term id="unit-of-measurement" />. Combining values across periods is <Term id="aggregation" />. Normalisation comes first when the periods differ.
+
+## Example
+
+Provider A reports 1,200 downloads for the year 2025. Provider B reports 80 downloads for each month of 2025. To compare them per month, divide A's value by twelve to get 100 downloads per month. B's average is 80 downloads per month. The comparison shows that A is larger, based on an average that assumes even use through the year.
+
+## Not to be confused with
+
+- <Term id="aggregation" />: combines several values with a function. Normalisation changes the length of the period a value refers to.
+- <Term id="unit-of-measurement" />: converting between units, such as megabytes to gigabytes, is a different step.
+- <Term id="kpi-standardisation" />: aligns the definitions of indicators. Normalisation aligns their reporting periods.
+- <Term id="time-series" />: the ordered values to which normalisation applies.
+
+## References
+
+- [NIST/SEMATECH e-Handbook of Statistical Methods, 6.4.1 Definitions, applications and techniques](https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc41.htm) - defines a time series with equally spaced time intervals, which is the condition that normalisation restores.

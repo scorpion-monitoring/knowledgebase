@@ -1,0 +1,43 @@
+---
+title: "Federated monitoring"
+description: "In federated monitoring, providers measure indicators locally with their own tools and a coordinating body collects the values."
+pageType: explanation
+audience: all
+modules: []
+term: "federated-monitoring"
+short: "In federated monitoring, autonomous service providers measure indicators locally with their own tools and keep control of their measurements, and a coordinating body collects the reported values."
+aliases: ["federated reporting"]
+related: ["monitoring","kpi-harmonisation","kpi-standardisation","service-provider","consortium"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+In federated monitoring, autonomous service providers measure indicators locally with their own tools and keep control of their measurements, and a coordinating body collects the reported values.
+
+## Explanation
+
+**This is a working definition of one author, not a formal standard.** It comes from the doctoral thesis of the author of this knowledge base (unpublished) and follows established practice.
+
+In a federated infrastructure no single organisation carries out the <Term id="monitoring" />. Each provider measures locally, with its own tools. The coordinating body collects the reported values for <Term id="reporting" /> and <Term id="evaluation" />, and does not need access to raw data such as access logs.
+
+Two practices show the pattern. ELIXIR collects usage statistics for its Core Data Resources locally at each host institute and collates them at the ELIXIR Hub. The German Network for Bioinformatics Infrastructure (de.NBI) lets service providers retain control over their metrics while supporting centralised reporting.
+
+Values from several providers can be combined only if the providers report the same indicators in the same way. That requires agreement, described by <Term id="kpi-harmonisation" /> and <Term id="kpi-standardisation" />.
+
+## Example
+
+Twenty providers each run their own web analytics. At the end of each month every provider reports the number of unique visitors to the coordinating office. The office adds the values and publishes the total. It never sees the providers' access logs.
+
+## Not to be confused with
+
+- Federated learning or federated identity, which are other uses of "federated".
+- Central monitoring, where one organisation runs the probes and holds the raw data.
+
+## References
+
+- [Durinx et al.: ELIXIR-EXCELERATE D3.3, 2019](https://doi.org/10.5281/zenodo.3362082) – describes usage statistics compiled by each resource or its institute, with some indicators collected locally and others centrally.
+- [Feser et al.: Evolving bioinformatics services – the journey of KPI metrics with […]. Journal of Integrative Bioinformatics 22(4), 20250048, 2026](https://doi.org/10.1515/jib-2025-0048) – describes the de.NBI approach of provider-controlled metrics with centralised reporting.
+- [Orviz et al.: A set of Common Service Quality Assurance Baseline Criteria for Research Projects (EOSC-Synergy), version 2.1, 2022](https://eosc-synergy.github.io/service-qa-baseline/) – notes that publishing metrics on external services is "a common case in federated infrastructures such as EOSC".

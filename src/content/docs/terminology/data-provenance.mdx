@@ -1,0 +1,42 @@
+---
+title: "Data provenance"
+description: "The record of where a data value came from, who or what produced it, and how it was derived, so that its quality can be judged."
+pageType: explanation
+audience: all
+modules: []
+term: "data-provenance"
+short: "Data provenance is the record of the origin of a data value, the parties involved and the steps by which it was produced, so that readers can judge its quality."
+aliases: ["provenance", "lineage", "data lineage"]
+related: ["observation", "measurement", "indicator", "time-series"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+Data provenance is the record of the origin of a data value, the parties involved and the steps by which it was produced, so that readers can judge its quality.
+
+## Explanation
+
+Provenance answers four questions about an <Term id="observation" />. Where did the value come from? Who or what produced or supplied it? How was it derived? When was it recorded or changed?
+
+The W3C PROV family of specifications describes provenance with three core ideas. An entity is a thing, such as a data value or a document. An activity is something that occurs over a period of time and acts upon or with entities. An agent is a person, organisation or software that is responsible for an activity. Relations such as "derived from" link them. PROV-O expresses this model in the OWL web ontology language, so that systems can exchange provenance.
+
+Provenance matters in monitoring because values come from different sources. A provider may enter a value by hand, send it from a log analysis or import it from a database. Each way has a different reliability. Recording the source and the method lets a reader weigh the <Term id="observation" /> and repeat the <Term id="measurement" />.
+
+Some communities use "data lineage" for the same idea, mostly for the technical path of data through processing steps. The KB treats lineage as one part of provenance.
+
+## Example
+
+A service provider reports 4,213 downloads for March 2025. The provenance record states that the figure came from the web server logs, that a named staff member entered it on 3 April 2025, and that a correction on 10 April replaced an earlier value of 4,031.
+
+## Not to be confused with
+
+- <Term id="measurement" />: the process that produces a value. Provenance records how it was done.
+- <Term id="observation" />: the value. Provenance describes where it came from.
+- Audit trail: a log of who changed what in a system. It can feed provenance but does not cover the origin of the data.
+
+## References
+
+- [PROV-O: The PROV Ontology, W3C Recommendation, 30 April 2013](https://www.w3.org/TR/prov-o/) - describes how to "represent and interchange provenance information generated in different systems and under different contexts", with entities, activities and agents.

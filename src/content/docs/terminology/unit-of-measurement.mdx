@@ -1,0 +1,46 @@
+---
+title: "Unit of measurement"
+description: "The reference quantity in which the numerical value of an indicator is expressed, such as users, seconds, bytes or per cent."
+pageType: explanation
+audience: all
+modules: []
+term: "unit-of-measurement"
+short: "A unit of measurement is the agreed reference quantity in which a numerical value is expressed, so that values of the same kind can be compared and combined."
+aliases: ["unit", "measurement unit"]
+related: ["indicator", "value-type", "observation", "aggregation", "period-normalisation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A unit of measurement is the agreed reference quantity in which a numerical value is expressed, so that values of the same kind can be compared and combined.
+
+## Explanation
+
+A number without a unit has no meaning. "1,200" can be users, megabytes or milliseconds. The unit turns the number into a statement about a quantity.
+
+Metrology, the science of measurement, fixes units for physical quantities in the International System of Units (SI). The SI covers units such as second, metre and kilogram. Monitoring of research infrastructures also uses units that the SI does not cover. Examples are users, publications, requests and datasets. These count things. Their unit is often the thing counted, with the number one as the unit in the SI sense. A unit is still stated, because it tells the reader what was counted.
+
+Machine-readable vocabularies exist. The Units of Measurement Ontology (UO) lists units for use in the life sciences. QUDT (quantities, units, dimensions and types) covers quantities and units in science and engineering. Both give units stable identifiers, which supports exchange between systems.
+
+The unit belongs to the <Term id="indicator" />, not to a single value. All <Term id="observation" /> values of one indicator use the same unit. Values in different units cannot be combined in an <Term id="aggregation" /> unless you convert them first. Converting between lengths of reporting periods is a separate step, called <Term id="period-normalisation" />.
+
+## Example
+
+An indicator "Data volume downloaded" uses the unit gigabyte. A provider that stores its figures in terabytes converts them before it reports. An indicator "Service availability" uses the unit per cent. An indicator "Registered users" uses the unit users.
+
+## Not to be confused with
+
+- <Term id="value-type" />: the kind of value (integer, decimal, boolean). The unit says what the value counts or measures.
+- <Term id="period-normalisation" />: a conversion between period lengths, not between units of the same quantity.
+- <Term id="observation" />: one recorded value. The unit is stated once per indicator.
+
+## References
+
+- [JCGM 200:2012, International vocabulary of metrology (VIM)](https://doi.org/10.59161/JCGM200-2012) - the reference vocabulary of metrology and its concepts of quantity and measurement unit.
+- [BIPM, The International System of Units (SI Brochure), 9th edition](https://www.bipm.org/en/publications/si-brochure) - the authoritative description of the SI and its units.
+- [Units of Measurement Ontology (UO), OBO Foundry](https://obofoundry.org/ontology/uo.html) - describes UO as "Metrical units for use in conjunction with PATO".
+- [QUDT overview](https://qudt.org/pages/QUDToverviewPage.html) - describes QUDT as a "unified architecture for the conceptual representation of quantities, quantity kinds, units, dimensions, and data types".
+- [Research Infrastructure Metrics Ontology (RIMO), version 0.2.0](https://github.com/JKoblitz/BH25-metrics), Koblitz and the BioHackathon Europe 2025 METRICS Team, 2025 – gives each indicator value a unit (`hasUnit`) taken from the Units Ontology.
