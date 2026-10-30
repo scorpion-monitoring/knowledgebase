@@ -1,0 +1,42 @@
+---
+title: "Dimension"
+description: "In a maturity model, a dimension is a group of related criteria that covers one aspect of a capability. Other fields use the word differently."
+pageType: explanation
+audience: all
+modules: []
+term: "dimension"
+short: "A dimension is a named group of related criteria in a maturity model that covers one aspect of the capability being assessed."
+aliases: ["domain", "category"]
+related: ["maturity-model", "criterion", "maturity-level", "self-assessment"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A dimension is a named group of related criteria in a maturity model that covers one aspect of the capability being assessed.
+
+## Explanation
+
+A <Term id="maturity-model" /> splits a broad capability into dimensions so that each can be assessed and discussed on its own. Each dimension holds one or more <Term id="criterion" /> items. Models use other names for the same part, most often "domain" or "category".
+
+Dimensions let an organisation see its profile. Ratings are compared within a dimension and the results across dimensions show where the gaps are. A dimension normally has no level of its own. Where a model gives one, it is a summary of the criteria beneath it.
+
+The word has other meanings. In statistical data exchange and data cubes, a dimension is a concept, such as reference area or time period, that together with other dimensions identifies a series or an observation. In geometry and physics it is an extent or a measurable quantity. The KB uses the maturity-model meaning only. Where it needs the statistical meaning, it writes "data dimension".
+
+## Example
+
+A model for service management in a research infrastructure has the dimensions "governance", "documentation", "user support" and "usage reporting". The dimension "usage reporting" holds criteria such as "usage statistics are collected" and "statistics are reviewed each year". A service provider reads its ratings per dimension to decide where to improve first.
+
+## Not to be confused with
+
+- A criterion, which is one assessable item inside a dimension.
+- A <Term id="maturity-level" />, which is a step on the rating scale and applies to criteria, not to groups.
+- A dimension of a data cube, which identifies a data series, for example the reference area.
+- A <Term id="thematic-category" />, which groups services by subject.
+
+## References
+
+- [SDMX Glossary, version 1.0 (2016)](https://sdmx.org/wp-content/uploads/SDMX_Glossary_Version_1_0_February_2016.htm) - defines "dimension" in the statistical sense, which this KB does not use for this term.
+- [FAIR Data Maturity Model: specification and guidelines (RDA, 2020)](https://www.rd-alliance.org/groups/fair-data-maturity-model-wg/outputs/fair-data-maturity-model-specification-and-guidelines/) - an example of a model whose indicators are grouped under the four FAIR areas.

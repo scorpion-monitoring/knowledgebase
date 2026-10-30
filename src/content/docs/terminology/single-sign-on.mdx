@@ -1,0 +1,44 @@
+---
+title: "Single sign-on (OIDC)"
+description: "Single sign-on lets a person authenticate once with a trusted identity provider and use several services; OpenID Connect is one protocol for it."
+pageType: explanation
+audience: all
+modules: []
+term: "single sign-on (OIDC)"
+short: "Single sign-on lets a person authenticate once with a trusted identity provider and then use several services without signing in to each, for example through OpenID Connect."
+aliases: ["SSO", "OpenID Connect", "OIDC"]
+related: ["authentication", "authorisation", "personal-access-token"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+Single sign-on lets a person authenticate once with a trusted identity provider and then use several services without signing in to each, for example through OpenID Connect.
+
+## Explanation
+
+Single sign-on (SSO) is a concept. A service redirects the person to an identity provider, which performs the <Term id="authentication" />. It then returns a signed statement of the result to the service. The service never sees the person's password.
+
+SSO can be built with different protocols. OpenID Connect (OIDC) and the Security Assertion Markup Language (SAML) are the two most common. The title of this page names OIDC because it is the protocol the KB treats in detail.
+
+OIDC is described by its specification as "a simple identity layer on top of the OAuth 2.0 protocol". OAuth 2.0 itself handles delegated access, and the specification adds that OIDC implements authentication as an extension of the OAuth 2.0 process. OIDC therefore confirms identity. What the person may do remains a matter of <Term id="authorisation" /> in each service.
+
+Research communities often use federated identity, in which institutions act as identity providers for each other's staff. OIDC can carry such logins.
+
+## Example
+
+A researcher signs in to the portal of a research infrastructure with the account of their home institute. They then open the catalogue of services and the form for usage statistics without entering the password again. The institute checks the password. The portal receives the confirmed identity.
+
+## Not to be confused with
+
+- Password synchronisation: separate accounts with the same password. SSO has a single account at the identity provider.
+- <Term id="authorisation" />: SSO states who the person is, not what they may do.
+- OAuth 2.0 on its own: a framework for delegated access, not a login protocol.
+- <Term id="personal-access-token" />: a credential created ahead of time for programmes, not an interactive sign-in.
+
+## References
+
+- OpenID Foundation, "OpenID Connect Core 1.0 incorporating errata set 2", 15 December 2023, [https://openid.net/specs/openid-connect-core-1_0.html](https://openid.net/specs/openid-connect-core-1_0.html) — the source of the quoted description and of the relationship to OAuth 2.0.
+- National Institute of Standards and Technology, "Digital Identity Guidelines", SP 800-63-3, [https://pages.nist.gov/800-63-3/sp800-63-3.html](https://pages.nist.gov/800-63-3/sp800-63-3.html) — describes federated identity, in which a relying party outsources authentication to an identity provider.

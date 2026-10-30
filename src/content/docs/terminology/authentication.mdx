@@ -1,0 +1,43 @@
+---
+title: "Authentication"
+description: "The process of verifying that a person or system is who or what it claims to be, before access to a resource is decided."
+pageType: explanation
+audience: all
+modules: []
+term: "authentication"
+short: "Authentication is the process of verifying that a person or system is who or what it claims to be, usually by checking a credential such as a password or token."
+aliases: ["signing in", "login"]
+related: ["authorisation", "single-sign-on", "personal-access-token"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+Authentication is the process of verifying that a person or system is who or what it claims to be, usually by checking a credential such as a password or token.
+
+## Explanation
+
+A system first needs to know who is acting. A user or programme claims an identity and presents evidence of it: something they know, something they hold, or something they are. The system checks the evidence. If the check succeeds, the claim is accepted for the session or request.
+
+Authentication answers "who are you?". It does not answer "what may you do?". That is the question of <Term id="authorisation" />.
+
+Identity can be checked by the system itself or by another service that the system trusts. <Term id="single-sign-on" /> is an example of the second approach. Programmes often authenticate with a <Term id="personal-access-token" /> instead of a password.
+
+The KB uses "authentication" for the verification step only. "Login" and "signing in" describe the user action that triggers it.
+
+## Example
+
+A service provider's staff member opens the page where usage statistics are entered. The system asks for credentials, checks them and recognises the person as that provider's contact. Which statistics the person may enter is then decided by a separate step.
+
+## Not to be confused with
+
+- <Term id="authorisation" />: deciding what an authenticated party may do.
+- Identification: stating a claimed identity, such as a user name, without proof.
+- Identity proofing: confirming a real-world person's identity when an account is created.
+
+## References
+
+- National Institute of Standards and Technology, "Digital Identity Guidelines", SP 800-63-3, [https://pages.nist.gov/800-63-3/sp800-63-3.html](https://pages.nist.gov/800-63-3/sp800-63-3.html) — defines digital authentication as "the process of determining the validity of one or more authenticators" used to claim a digital identity. NIST has since superseded this revision with SP 800-63-4.
+- Internet Engineering Task Force, "Internet Security Glossary, Version 2", RFC 4949, [https://www.rfc-editor.org/rfc/rfc4949](https://www.rfc-editor.org/rfc/rfc4949) — defines to authenticate as to "Verify (i.e., establish the truth of) an attribute value claimed by or for a system entity or system resource."

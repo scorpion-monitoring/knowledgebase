@@ -1,0 +1,48 @@
+---
+title: "Service registry"
+description: "A service registry is a record of services and their metadata, used for discovery and reporting. How it differs from a service catalogue."
+pageType: explanation
+audience: all
+modules: []
+term: "service registry"
+short: "A service registry is a maintained record of services and their descriptive metadata, kept so that services can be discovered, compared and reported on."
+aliases: ["registry of services"]
+related: ["service", "service-catalogue", "service-provider", "lifecycle-stage"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A service registry is a maintained record of services and their descriptive metadata, kept so that services can be discovered, compared and reported on.
+
+## Explanation
+
+A registry holds one entry per <Term id="service" />: name, description, provider, category, contact and <Term id="lifecycle-stage" />. It can cover the services of one organisation or of many.
+
+The term has several uses.
+
+- In research infrastructures, a registry is an inventory of services used for discovery and reporting. It can include services that are not yet live.
+- In software architecture, a registry lists the network addresses of running software components. The UDDI specification is an example of such a registry for web services.
+- In the European Open Science Cloud documents, the live catalogue feeds a registry, which shows that the two terms are related but not identical.
+
+The KB uses the first meaning. The software meaning is not used.
+
+A <Term id="service-catalogue" /> is built for users. A registry is built for the organisation and for tools. Many organisations use one list for both purposes, which is why the terms are often confused.
+
+## Example
+
+An infrastructure keeps one registry of all services of its member institutes. The registry stores each service's provider, category and stage. Management uses it to count live services per provider and to find services without a named contact.
+
+## Not to be confused with
+
+- A <Term id="service-catalogue" />, which lists live services for users.
+- A software service registry, which holds the network locations of software components.
+- A registry of organisations or people. It records different kinds of things.
+
+## References
+
+- OASIS, [UDDI Version 3.0.2](https://www.oasis-open.org/committees/uddi-spec/doc/spec/v3/uddi_v3.htm) - specifies a registry for describing and discovering web services, the software meaning above.
+- EGI, [EOSC-hub glossary](https://confluence.egi.eu/display/EOSC/Glossary) - separates the catalogue (live services) from the portfolio and from the registry that the catalogue populates. The page blocks automated access; the content was read through a search summary.
+- FitSM-Basics, [Service portfolio management](https://training.pages.sigma2.no/tutorials/fitsm-basics/episodes/Service_Portfolio_Management.html) - defines the portfolio as the internal list of all services, the wider list that a registry resembles.

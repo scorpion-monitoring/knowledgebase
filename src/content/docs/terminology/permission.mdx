@@ -1,0 +1,41 @@
+---
+title: "Permission"
+description: "The right to perform one specific action on a resource, such as reading or editing a record, granted to a person, role or system."
+pageType: explanation
+audience: all
+modules: []
+term: "permission"
+short: "A permission is the approval to perform one specific kind of action, such as reading or editing a record, on a resource."
+aliases: ["privilege", "access right"]
+related: ["role", "authorisation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A permission is the approval to perform one specific kind of action, such as reading or editing a record, on a resource.
+
+## Explanation
+
+A permission is the smallest unit of <Term id="authorisation" />. It names an action, and often a type of resource. Permissions are usually written so that each one allows exactly one thing.
+
+Permissions are rarely given to people one by one. They are grouped into a <Term id="role" />, and people receive the role.
+
+Vocabulary varies. Operating systems usually say "privilege". Role-based access control standards say "permission". Some glossaries treat "authorisation" and "permission" as synonyms. The KB uses "permission" for a single allowed action and "authorisation" for the wider decision.
+
+## Example
+
+A usage-statistics form is protected by three permissions: to view the figures, to enter new figures and to approve them. A provider contact holds the first two. A coordinator holds all three. The permission to approve is not given to the person who enters the figures, so that two people check each value.
+
+## Not to be confused with
+
+- <Term id="role" />: a named set of permissions.
+- <Term id="authorisation" />: the decision or approval in general.
+- File-system permissions: one implementation of the idea, in operating systems.
+
+## References
+
+- Internet Engineering Task Force, "Internet Security Glossary, Version 2", RFC 4949, [https://www.rfc-editor.org/rfc/rfc4949](https://www.rfc-editor.org/rfc/rfc4949) — gives the role-based sense as a set of approvals to perform security-relevant functions in the context of role-based access control, and notes that some glossaries treat the word as a synonym of authorisation.
+- National Institute of Standards and Technology, "Role Based Access Control", [https://csrc.nist.gov/projects/role-based-access-control](https://csrc.nist.gov/projects/role-based-access-control) — summarises the INCITS 359 standard, which defines users, roles, permissions, operations and objects.

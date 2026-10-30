@@ -1,0 +1,42 @@
+---
+title: "Criterion"
+description: "In a maturity model, a criterion is one assessable item, rated against the levels of the model. It sits inside a dimension."
+pageType: explanation
+audience: all
+modules: []
+term: "criterion"
+short: "A criterion is a single assessable item of a maturity model, described so that an assessor can rate it against the levels of the model."
+aliases: ["topic", "assessment criterion"]
+related: ["maturity-model", "dimension", "maturity-level", "self-assessment"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A criterion is a single assessable item of a maturity model, described so that an assessor can rate it against the levels of the model.
+
+## Explanation
+
+A criterion belongs to one <Term id="dimension" /> and is the smallest unit that a <Term id="maturity-model" /> rates. It is phrased so that two assessors with the same evidence reach the same rating. Good criteria describe observable practice, not intent.
+
+Models call this part by different names. Some write "topic", "indicator" or "practice". The KB uses "criterion" for the item that is rated and keeps <Term id="indicator" /> for a quantity that is measured with data.
+
+Each criterion is rated against the <Term id="maturity-level" /> scale. Some models give every criterion its own level descriptions. Others use one shared scale. The FAIR data model attaches a priority to each indicator as well, which says how important it is.
+
+## Example
+
+In a model for usage reporting, a criterion reads "The service provider records usage statistics for each reporting period". The level descriptions run from "no records are kept" through "records are kept irregularly" and "records are kept for every period" to "records are kept for every period and checked against a second source".
+
+## Not to be confused with
+
+- An indicator, which is measured with data and has a value and a unit. A criterion is judged against described levels.
+- A <Term id="target" />, which is the value an indicator should reach.
+- A dimension, which groups criteria.
+- A selection criterion in a funding call, which ranks applicants.
+
+## References
+
+- [FAIR Data Maturity Model: specification and guidelines (RDA, 2020)](https://www.rd-alliance.org/groups/fair-data-maturity-model-wg/outputs/fair-data-maturity-model-specification-and-guidelines/) - shows items that are rated with levels, priorities and evaluation methods.
+- [Bahim et al., "The FAIR Data Maturity Model: An Approach to Harmonise FAIR Assessments", Data Science Journal 19(1), 41 (2020)](https://doi.org/10.5334/dsj-2020-041) - describes how each assessed item has an identifier and a priority of essential, important or useful.

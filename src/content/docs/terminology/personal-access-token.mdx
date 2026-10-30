@@ -1,0 +1,44 @@
+---
+title: "Personal access token"
+description: "A secret string, created by a user, that a program presents in place of a password to act on that user's behalf with limited rights."
+pageType: explanation
+audience: all
+modules: []
+term: "personal access token"
+short: "A personal access token is a secret string that a user creates so that a programme can act on their behalf, in place of a password, with limited rights."
+aliases: ["PAT", "API token", "access token"]
+related: ["authentication", "authorisation", "single-sign-on"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A personal access token is a secret string that a user creates so that a programme can act on their behalf, in place of a password, with limited rights.
+
+## Explanation
+
+Scripts and other programmes cannot use an interactive sign-in. A user therefore creates a token and gives it to the programme. The service treats a request that carries the token as coming from that user, within the limits set for the token.
+
+Tokens are normally restricted. They can be limited to certain actions (a scope), they can expire, and the user can revoke them. A token cannot exceed the rights of its owner, which stay under the control of <Term id="authorisation" />.
+
+Most personal access tokens work as bearer tokens. The IETF specification says that "Any party in possession of a bearer token (a "bearer") can use it to get access to the associated resources". Treat the token like a password: store it safely and never share it.
+
+The name is not standardised. Services also call such tokens API tokens or access tokens. In OAuth 2.0, "access token" is a broader term for any string that represents granted authorisation, and a personal token is one kind. The KB uses "personal access token" for a token that a user creates by hand for their own account.
+
+## Example
+
+A service provider wants to upload monthly usage statistics from its own monitoring system. A contact person creates a token that allows only writing statistics, with a six-month expiry. The monitoring system sends the token with each upload. When the person leaves, they revoke the token and the uploads stop.
+
+## Not to be confused with
+
+- Password: a secret for interactive <Term id="authentication" />. A token is made for programmes and can be limited and revoked on its own.
+- <Term id="single-sign-on" /> tokens: issued during an interactive sign-in and short-lived. A personal access token is created ahead of time.
+- Role: a token carries at most the rights its owner already has.
+
+## References
+
+- Internet Engineering Task Force, "The OAuth 2.0 Authorization Framework: Bearer Token Usage", RFC 6750, [https://www.rfc-editor.org/rfc/rfc6750](https://www.rfc-editor.org/rfc/rfc6750) — source of the quotation and of the advice that bearer tokens must be protected from disclosure.
+- Internet Engineering Task Force, "The OAuth 2.0 Authorization Framework", RFC 6749, [https://www.rfc-editor.org/rfc/rfc6749](https://www.rfc-editor.org/rfc/rfc6749) — defines an access token as a string representing an authorisation issued to the client, with specific scopes and durations.
+- GitHub Docs, "Managing your personal access tokens", [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) — one service's example: tokens are "an alternative to using passwords", limited by scopes or permissions.

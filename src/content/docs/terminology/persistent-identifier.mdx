@@ -1,0 +1,43 @@
+---
+title: "Persistent identifier"
+description: "A persistent identifier is a long-lasting reference to an object that stays valid when the object moves. Examples include DOI, ORCID, Handle and ARK."
+pageType: explanation
+audience: all
+modules: []
+term: "persistent identifier"
+short: "A persistent identifier (PID) is a long-lasting reference to an object that stays valid and resolvable even when the object's location or ownership changes."
+aliases: ["PID", "persistent identifiers"]
+related: ["doi", "publication", "citation"]
+draft: false
+---
+
+import Term from '@components/Term.astro';
+
+## Definition
+
+A persistent identifier (PID) is a long-lasting reference to an object that stays valid and resolvable even when the object's location or ownership changes.
+
+## Explanation
+
+A PID is a unique string, often written as a link, that a resolver turns into the current location of the object or of a description of it. The object can be an article, dataset, person, organisation or physical sample.
+
+Common schemes include the <Term id="doi" />, ORCID for researchers, Handle, and the Archival Resource Key (ARK). A DOI is an example of a PID, and ARK identifiers are described as URLs that support long-term access to information.
+
+Persistence is not a feature of the string. It depends on an organisation that commits to keep the identifier and its record up to date. A PID that is not maintained stops working like any other link.
+
+For monitoring, PIDs allow a <Term id="publication" /> to be counted once, even when it is listed in several places.
+
+## Example
+
+An infrastructure asks its users to cite a service with its PID. Later the service moves to a new web address. The provider updates the record behind the identifier. All earlier citations still lead to the service.
+
+## Not to be confused with
+
+- A web address (URL), which can change or break.
+- A <Term id="doi" />, which is one kind of PID, not the only one.
+- An internal database key, which is unique inside one system but has no commitment to resolve outside it.
+
+## References
+
+- DataCite, [DOI basics](https://support.datacite.org/docs/doi-basics) - states that DOIs are an example of persistent identifiers and are resolved through doi.org.
+- ARK Alliance, [About ARKs](https://arks.org/about/) - describes ARK as a PID scheme alongside DOI, ORCID and ROR, and states "Persistence means persistent management".
